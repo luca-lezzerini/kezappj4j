@@ -6,5 +6,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'kezapp-client11';
+  nickName: string;
+  messaggio: string;
+  righe: string[];
+
+  Chat(){
+
+  }
+
+  InviaMessaggioDto(){
+
+  }
+
+  Messaggio(){
+
+  }
+
+  RegistrazioneDto(){
+
+  }
+
+  RichiediMessaggioDto(){
+
+  }
+
+  RichiediRegistrazioneDto(){
+
+  }
+
 }
