@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocationChangeEvent } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'kezapp-client07';
+  nickName: string;
+  Messaggio: string;
+  righe:string[];
+  sessione: string;
+  mostraTesto=false;
+  
+  nascondiTesto(){
+    this.mostraTesto=true;
+  }
 }
+

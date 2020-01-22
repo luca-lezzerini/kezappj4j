@@ -1,20 +1,62 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div *ngIf="sessione==null">
+  <input type="text" [(ngModel)]="nickName"> &nbsp;
+  <button (click)="registrazione()">Registrazione</button>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<div *ngIf="sessione!=null">
+  <input type="text" [(ngModel)]="messaggio"> &nbsp;
+  <button (click)="inviaATutti()">Invia a tutti</button> <br>
+  Contatti
+  <table>
+    <tr *ngFor="let r of righe">
+      <th>Column 0</th>
+      <th>Column 1</th>
+      <th>Column 2</th>
+      <th>Column 3</th>
+    </tr>
+    <tr>
+      <td>Row 1</td>
+      <td>Text</td>
+      <td>Text </td>
+      <td><button>Invia</button></td>
+    </tr>
+    <tr>
+      <td>Row 2</td>
+      <td>Text</td>
+      <td>Text </td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>Row 3</td>
+      <td>Text</td>
+      <td>Text </td>
+      <td>Text</td>
+    </tr>
+  </table>
+  Messaggi ricevuti &nbsp; <button>Aggiorna</button> <br>
+  <table>
+    <tr>
+      <th>Column 0</th>
+      <th>Column 1</th>
+      <th>Column 2</th>
+      <th>Column 3</th>
+    </tr>
+    <tr>
+      <td>Row 1</td>
+      <td>Text</td>
+      <td>Text </td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>Row 2</td>
+      <td>Text</td>
+      <td>Text </td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>Row 3</td>
+      <td>Text</td>
+      <td>Text </td>
+      <td>Text</td>
+    </tr>
+  </table>
+</div>
