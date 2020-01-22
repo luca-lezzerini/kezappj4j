@@ -1,4 +1,7 @@
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { RichiediRegistrazioneDto } from './richiediRegistrazioneDto';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'kezapp-client02';
+  nickName: string;
+  messaggio: string;
+  righe: string[] = [];
+  sessione: string;
+  rrd: RichiediRegistrazioneDto;
+  constructor(private http: HttpClient){
+
+  }
+  registrazione() {
+    this.rrd.nickname = this.nickName;
+    let obs : Observable<RichiediRegistrazioneDto> = this.http.get<RichiediRegistrazioneDto>('http://localhost:8080/KezappController02');
+    obs.subscribe();
+  }
 }
