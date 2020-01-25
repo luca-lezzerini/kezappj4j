@@ -1,62 +1,48 @@
-<div *ngIf="sessione==null">
+<div *ngIf="sessione==null" class="registrazione">
   <input type="text" [(ngModel)]="nickName"> &nbsp;
   <button (click)="registrazione()">Registrazione</button>
 </div>
-<div *ngIf="sessione!=null">
-  <input type="text" [(ngModel)]="messaggio"> &nbsp;
-  <button (click)="inviaATutti()">Invia a tutti</button> <br>
-  Contatti
-  <table>
-    <tr *ngFor="let r of righe">
-      <th>Column 0</th>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-    </tr>
-    <tr>
-      <td>Row 1</td>
-      <td>Text</td>
-      <td>Text </td>
-      <td><button>Invia</button></td>
-    </tr>
-    <tr>
-      <td>Row 2</td>
-      <td>Text</td>
-      <td>Text </td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td>Row 3</td>
-      <td>Text</td>
-      <td>Text </td>
-      <td>Text</td>
-    </tr>
-  </table>
-  Messaggi ricevuti &nbsp; <button>Aggiorna</button> <br>
-  <table>
-    <tr>
-      <th>Column 0</th>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-    </tr>
-    <tr>
-      <td>Row 1</td>
-      <td>Text</td>
-      <td>Text </td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td>Row 2</td>
-      <td>Text</td>
-      <td>Text </td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td>Row 3</td>
-      <td>Text</td>
-      <td>Text </td>
-      <td>Text</td>
-    </tr>
-  </table>
+<div *ngIf="sessione!=null" class="chat">
+  <div class="center">
+    <input type="text" [(ngModel)]="messaggio" class="messaggio"> &nbsp;
+    <button (click)="inviaTutti()">Invia a tutti</button>
+  </div>
+  <br>
+  <div>
+    <b>Contatti</b>
+    <br>
+    <br>
+    <table>
+      <tr>
+        <th>Column 0</th>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+      </tr>
+      <tr *ngFor="let r of righe">
+        <td>{{r[0]}}</td>
+        <td>{{r[1]}}</td>
+        <td>{{r[2]}}</td>
+        <td><button class="table-button">Invia</button></td>
+      </tr>
+    </table>
+    <br>
+    <b>Messaggi ricevuti</b> &nbsp; <button>Aggiorna</button>
+    <br>
+    <br>
+    <table>
+      <tr>
+        <th>Column 0</th>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+      </tr>
+      <tr *ngFor="let r of righe">
+        <td>{{r[0]}}</td>
+        <td>{{r[1]}}</td>
+        <td>{{r[2]}}</td>
+        <td>{{r[3]}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
