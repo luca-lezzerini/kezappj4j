@@ -1,12 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
+<br>
+<h1 text align="center">Hi there! I'm using Kezapp!</h1>
+<hr>
+<div text align="center">
   <input type="text" [(ngModel)]="nickName">
-  <button type="button" (click)="nascondiTesto()">Registrazione</button>
+  <button type="button" (click)="nascondiTesto()"><b>Registrazione</b></button>
 </div>
-
-<div *ngIf="mostraTesto">
+<br>
+<div *ngIf="mostraTesto" text align="center">
   <input type="text" [(ngModel)]="messaggio">
-  <button type="button" (click)="Inviaatutti()">Invia a tutti</button>
+  <button type="button" (click)="InviaATutti()">Invia a tutti</button>
 <h2>Contatti</h2>
 <br>
 <table>
@@ -35,7 +38,7 @@
       <td>text</td>
   </tr>
 </table>
-<br>
+<hr>
 Messaggi Ricevuti <input type="button" value="Aggiorna">
 <br>
 <table>

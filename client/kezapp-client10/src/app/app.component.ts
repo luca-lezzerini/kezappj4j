@@ -16,3 +16,4 @@ export class AppComponent {
   nascondiTesto() {
     this.mostraTesto=true
   }
+}
