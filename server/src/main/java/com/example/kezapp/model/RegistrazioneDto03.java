@@ -5,43 +5,39 @@
  */
 package com.example.kezapp.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author utente
  */
-public class RegistrazioneDto17 {
-    private List<Chat17> contatti;
-    private List<Messaggio17> messaggi;
+public class RegistrazioneDto03 {
+    private List<Chat03> contatti ;
+    private List<Messaggio03> messaggi;
     private String sessione;
 
-    public RegistrazioneDto17() {
-        contatti = new ArrayList<>();
-        messaggi = new ArrayList<>();
-    }
-
-    public RegistrazioneDto17(List<Chat17> contatti, List<Messaggio17> messaggi, String sessione) {
+    public RegistrazioneDto03(List<Chat03> contatti, List<Messaggio03> messaggi, String sessione) {
         this.contatti = contatti;
         this.messaggi = messaggi;
         this.sessione = sessione;
     }
 
+    public RegistrazioneDto03() {
+    }
 
-    public List<Chat17> getContatti() {
+    public List<Chat03> getContatti() {
         return contatti;
     }
 
-    public void setContatti(List<Chat17> contatti) {
+    public void setContatti(List<Chat03> contatti) {
         this.contatti = contatti;
     }
 
-    public List<Messaggio17> getMessaggi() {
+    public List<Messaggio03> getMessaggi() {
         return messaggi;
     }
 
-    public void setMessaggi(List<Messaggio17> messaggi) {
+    public void setMessaggi(List<Messaggio03> messaggi) {
         this.messaggi = messaggi;
     }
 
@@ -52,5 +48,4 @@ public class RegistrazioneDto17 {
     public void setSessione(String sessione) {
         this.sessione = sessione;
     }
-    
 }

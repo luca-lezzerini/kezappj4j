@@ -16,12 +16,11 @@ public class RegistrazioneDto01 {
     }
 
     public RegistrazioneDto01() {
+        contatti = new ArrayList<>();
+        messaggio = new ArrayList<>();
     }
     
     public List<Chat01> getContatti() {
-        if(contatti==null){
-            contatti = new ArrayList<>();
-        }
         return contatti;
     }
 
@@ -30,9 +29,6 @@ public class RegistrazioneDto01 {
     }
 
     public List<Messaggio01> getMessaggio() {
-        if(messaggio==null){
-            messaggio = new ArrayList<>();
-        }
         return messaggio;
     }
 

@@ -6,6 +6,16 @@ public class Chat01 {
     private String nickname;
     private String sessione;
 
+    public Chat01(Long id, String nickname, String sessione) {
+        this.id = id;
+        this.nickname = nickname;
+        this.sessione = sessione;
+    }
+
+    public Chat01() {
+    }
+    
+    
     public long getId() {
         if (id == null) {
             id = 0L;
