@@ -10,7 +10,25 @@ public class KezappController04 {
 
     @RequestMapping(value = "/registrazione04")
     public RegistrazioneDto04 registrazione(/*RichiediRegistrazioneDto04 reg*/) {
-        System.out.println("Siamo in registrazione");
+        System.out.println("Siamo in registrazione!");
+        return new RegistrazioneDto04();
+    }
+
+    @RequestMapping(value = "/inviaTutti04")
+    public RegistrazioneDto04 inviaTutti() {
+        System.out.println("Siamo in inviaTutti!");
+        return new RegistrazioneDto04();
+    }
+
+    @RequestMapping(value = "/inviaUno04")
+    public RegistrazioneDto04 inviaUno() {
+        System.out.println("Siamo in inviaUno!");
+        return new RegistrazioneDto04();
+    }
+
+    @RequestMapping(value = "/aggiorna04")
+    public RegistrazioneDto04 aggiorna() {
+        System.out.println("Siamo in aggiorna!");
         return new RegistrazioneDto04();
     }
 }
