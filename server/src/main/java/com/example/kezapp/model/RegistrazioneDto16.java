@@ -11,18 +11,18 @@ import java.util.List;
  *
  * @author utente
  */
-public class RegistrazioneDTO16 {
+public class RegistrazioneDto16 {
     private List<Chat16> contatti;
     private List<Messaggio16> messaggi;
     private String sessione;
 
-    public RegistrazioneDTO16(List<Chat16> contatti, List<Messaggio16> messaggi, String sessione) {
+    public RegistrazioneDto16(List<Chat16> contatti, List<Messaggio16> messaggi, String sessione) {
         this.contatti = contatti;
         this.messaggi = messaggi;
         this.sessione = sessione;
     }
 
-    public RegistrazioneDTO16() {
+    public RegistrazioneDto16() {
     }
 
     

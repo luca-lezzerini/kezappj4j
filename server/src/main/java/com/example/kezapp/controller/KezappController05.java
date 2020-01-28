@@ -5,10 +5,20 @@
  */
 package com.example.kezapp.controller;
 
+import com.example.kezapp.model.RegistrazioneDto05;
+import com.example.kezapp.model.RichiediRegistrazioneDto05;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  *
  * @author utente
  */
+@Controller
 public class KezappController05 {
-    
+    @RequestMapping(value = "/registrazione")
+    public RegistrazioneDto05 registrazione(){
+        System.out.println("Siamo in registrazione");
+        return new RegistrazioneDto05();
+    }
 }
