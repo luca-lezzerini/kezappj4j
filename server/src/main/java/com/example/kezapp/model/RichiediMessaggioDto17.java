@@ -9,6 +9,7 @@ package com.example.kezapp.model;
  *
  * @author utente
  */
+<<<<<<< HEAD:server/src/main/java/com/example/kezapp/model/RichiediMessaggioDto.java
 public class RichiediMessaggioDTO {
     private String sessione;
 
@@ -20,6 +21,18 @@ public class RichiediMessaggioDTO {
     }
 
     
+=======
+public class RichiediMessaggioDto17 {
+    private String sessione;
+
+    public RichiediMessaggioDto17() {
+    }
+
+    public RichiediMessaggioDto17(String sessione) {
+        this.sessione = sessione;
+    }
+
+>>>>>>> 9ad66b1debc13b7285cd05d5f91db6d633c89ca2:server/src/main/java/com/example/kezapp/model/RichiediMessaggioDto17.java
     public String getSessione() {
         return sessione;
     }

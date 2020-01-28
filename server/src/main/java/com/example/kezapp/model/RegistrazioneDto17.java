@@ -11,10 +11,19 @@ import java.util.List;
  *
  * @author utente
  */
-public class RegistrazioneDto {
+public class RegistrazioneDto17 {
     private List<Chat17> contatti;
     private List<Chat17> messaggi;
     private String sessione;
+
+    public RegistrazioneDto17() {
+    }
+
+    public RegistrazioneDto17(List<Chat17> contatti, List<Chat17> messaggi, String sessione) {
+        this.contatti = contatti;
+        this.messaggi = messaggi;
+        this.sessione = sessione;
+    }
 
     public List<Chat17> getContatti() {
         return contatti;

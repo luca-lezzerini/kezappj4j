@@ -1,13 +1,13 @@
 package com.example.kezapp.model;
 
-public class RichiediRegistrazioneDto {
+public class RichiediRegistrazioneDto01 {
     private String nickname;
 
-    public RichiediRegistrazioneDto() {
+    public RichiediRegistrazioneDto01(String nickname) {
+        this.nickname = nickname;
     }
 
-    public RichiediRegistrazioneDto(String nickname) {
-        this.nickname = nickname;
+    public RichiediRegistrazioneDto01() {
     }
 
     public String getNickname() {
@@ -17,5 +17,5 @@ public class RichiediRegistrazioneDto {
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
-    
+
 }
