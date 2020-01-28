@@ -1,14 +1,14 @@
 package com.example.kezapp.model;
 
-public class RichiediMessaggioDto01 {
+public class RichiediMessaggiDto01 {
 
     private String sessione;
 
-    public RichiediMessaggioDto01(String sessione) {
+    public RichiediMessaggiDto01(String sessione) {
         this.sessione = sessione;
     }
 
-    public RichiediMessaggioDto01() {
+    public RichiediMessaggiDto01() {
     }
 
     public String getSessione() {
