@@ -14,7 +14,19 @@ public class Chat12 {
     private String nickname;
     private String session;
 
+    public Chat12(Long id, String nickname, String session) {
+        this.id = id;
+        this.nickname = nickname;
+        this.session = session;
+    }
+
+    public Chat12() {
+    }
+
     public Long getId() {
+        if(id==null){
+            id = 0L;
+        }
         return id;
     }
 
