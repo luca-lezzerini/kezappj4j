@@ -19,19 +19,19 @@ public class KezappController01 {
         return rx;
     }
     
-    @RequestMapping(value = "/invia-tutti01")
+    @RequestMapping(value = "/inviaTutti01")
     public RegistrazioneDto01 inviaTutti(){
         System.out.println("inviato a tutti");
         return new RegistrazioneDto01();
     }
     
-    @RequestMapping(value = "/invia-uno01")
+    @RequestMapping(value = "/inviaUno01")
     public RegistrazioneDto01 inviaUno(){
         System.out.println("inviato a uno");
         return new RegistrazioneDto01();
     }
     
-    @RequestMapping(value = "/aggiornamento01")
+    @RequestMapping(value = "/aggiorna01")
     public RegistrazioneDto01 aggiorna(){
         System.out.println("Aggiornamento");
         return new RegistrazioneDto01();
