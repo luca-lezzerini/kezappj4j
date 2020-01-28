@@ -18,7 +18,7 @@ public class KezappController10 {
     }
     
     @RequestMapping(value = "/inviaatutti10")
-    public RegistrazioneDto10 inviaATutti(){
+    public RegistrazioneDto10 inviaTutti(){
         System.out.println("Siamo in Invia a tutti!");
         RegistrazioneDto10 rx = new RegistrazioneDto10();
         rx.setSessione("Sessione Invia a tutti");
@@ -26,7 +26,7 @@ public class KezappController10 {
     }
     
     @RequestMapping(value = "/inviaauno10")
-    public RegistrazioneDto10 inviaAUno(){
+    public RegistrazioneDto10 inviaUno(){
         System.out.println("Siamo in Invia A Uno!");
         RegistrazioneDto10 rx = new RegistrazioneDto10();
         rx.setSessione("Sessione Invia a uno!");
