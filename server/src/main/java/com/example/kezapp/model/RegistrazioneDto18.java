@@ -5,6 +5,7 @@
  */
 package com.example.kezapp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,10 +14,12 @@ import java.util.List;
  */
 public class RegistrazioneDto18 {
     private String sessione;
-    List<Chat18> contatti;
-    List<Messaggio18> messaggi;
+    private List<Chat18> contatti;
+    private List<Messaggio18> messaggi;
 
     public RegistrazioneDto18() {
+        contatti = new ArrayList<>();
+        messaggi = new ArrayList<>();
     }
 
     public RegistrazioneDto18(String sessione, List<Chat18> contatti, List<Messaggio18> messaggi) {
