@@ -6,8 +6,6 @@
 package com.example.kezapp.controller;
 
 import com.example.kezapp.model.RegistrazioneDto01;
-import com.example.kezapp.model.RichiediRegistrazioneDto;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,4 +18,23 @@ public class KezappController01 {
         rx.setSessione("123Stella!");
         return rx;
     }
+    
+    @RequestMapping(value = "/invia-tutti01")
+    public RegistrazioneDto01 inviaTutti(){
+        System.out.println("inviato a tutti");
+        return new RegistrazioneDto01();
+    }
+    
+    @RequestMapping(value = "/invia-uno01")
+    public RegistrazioneDto01 inviaUno(){
+        System.out.println("inviato a uno");
+        return new RegistrazioneDto01();
+    }
+    
+    @RequestMapping(value = "/aggiornamento01")
+    public RegistrazioneDto01 aggiorna(){
+        System.out.println("Aggiornamento");
+        return new RegistrazioneDto01();
+    }
+    
 }
