@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class KezappController18 {
-    @RequestMapping(value = "/registrazione")
+    @RequestMapping(value = "/registrazione18")
     public RegistrazioneDto18 registrazione ()  {
         System.out.println("Stiamo in registrazione");
         RegistrazioneDto18 rx= new RegistrazioneDto18();
         rx.setSessione("123stella");
         return rx;
     }
+    
 }
