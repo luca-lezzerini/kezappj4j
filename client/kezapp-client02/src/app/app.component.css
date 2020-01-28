@@ -1,0 +1,57 @@
+div.registrazione {
+  display: flex;
+  margin: auto;
+  width: 30%
+}
+
+div.center {
+  text-align: center;
+}
+
+div.chat {
+  margin: 20px;
+}
+
+input.messaggio {
+  width: 60%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+th {
+  color: white;
+  background-color: teal;
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th, td {
+  padding: 5px;
+  border-right: 1px solid #ddd;
+}
+
+button {
+  color: white;
+  background-color: teal;
+  border: none;
+  padding: 5px;
+  border-radius: 4px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
