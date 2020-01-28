@@ -18,6 +18,9 @@ public class Chat02 {
     }
 
     public Long getId() {
+        if (id == null) {
+            id = 0L;
+        }
         return id;
     }
 
