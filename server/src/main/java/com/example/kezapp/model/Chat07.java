@@ -1,14 +1,13 @@
+
 package com.example.kezapp.model;
 
-public class Chat00 {
+
+public class Chat07 {
     private Long id;
     private String nickname;
     private String sessione;
 
     public Long getId() {
-        if (id == null){
-            id = 0L;
-        }
         return id;
     }
 
