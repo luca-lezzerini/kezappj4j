@@ -25,6 +25,26 @@ public class KezappController08 {
         rx.setSessione("123stella!");
         return rx;
     }
-
     
+    @RequestMapping(value = "/inviaTutti08")
+     public RegistrazioneDto08 inviaTutti08(){
+        System.out.println("Siamo in Invia tutti!");
+        RegistrazioneDto08 rx =new RegistrazioneDto08();
+        rx.setSessione("123tutti!");
+        return rx;
+     }
+    @RequestMapping(value = "/inviaUno08")
+     public RegistrazioneDto08 inviaUno08(){
+        System.out.println("Siamo in Invia uno!");
+        RegistrazioneDto08 rx =new RegistrazioneDto08();
+        rx.setSessione("123Uno!");
+        return rx;
+     }
+ @RequestMapping(value = "/aggiorna08")
+     public RegistrazioneDto08 aggiorna08(){
+        System.out.println("Siamo in aggiorna!");
+        RegistrazioneDto08 rx =new RegistrazioneDto08();
+        rx.setSessione("123 aggiorna!");
+        return rx;
+     }
 }
