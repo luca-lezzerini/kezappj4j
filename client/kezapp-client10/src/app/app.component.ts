@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { logging } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'kezapp-client10';
-}
+  nickName: string;
+  messaggio: string;
+  righe: string[];
+  sessione: string;
+  mostraTesto: boolean = false;
+
+  nascondiTesto() {
+    this.mostraTesto=true
+  }

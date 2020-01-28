@@ -1,0 +1,26 @@
+
+
+<div *ngIf="(sessione==null)">
+<input type="text" [(ngModel)]="nickName"> &nbsp;
+<button type="button" (click)="registra()">Registrazione </button> <br> <br>
+<input type="text" [(ngModel)]="messaggio"> &nbsp;
+<button type="button" (click)="invia()"> Invia a tutti </button>
+</div>
+<div *ngIf="(sessione!=null)">
+ <p>Contatti</p>
+ <table style="border: double;">
+  <tr  *ngFor="let r of righe" style ="color: brown;" > Column0 <td>Column1</td><td>Column2</td><td>Column3</td><td>Column4</td> </tr>
+   <tr> Row1 <td>text1</td><td>text2</td><td>text3</td><td>text4</td> </tr>
+   <tr> Row2 <td>text1</td><td>text2</td><td>text3</td><td>text4</td> </tr>
+   <tr> Row3 <td>text1</td><td>text2</td><td>text3</td><td>text4</td> </tr>
+ </table>
+ <p>Messaggi</p>
+ <button type="button" (click)="aggiorna()">Aggiorna </button> <br>
+ <table style="border: double;">
+  <tr style ="color: brown;"> Column0 <td>Column1</td><td>Column2</td><td>Column3</td><td>Column4</td> </tr>
+  <tr> Row1 <td>text1</td><td>text2</td><td>text3</td><td>text4</td> </tr>
+  <tr> Row2 <td>text1</td><td>text2</td><td>text3</td><td>text4</td> </tr>
+  <tr> Row3 <td>text1</td><td>text2</td><td>text3</td><td>text4</td> </tr>
+</table>
+</div>
+

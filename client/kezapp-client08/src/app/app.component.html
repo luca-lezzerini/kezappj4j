@@ -1,20 +1,83 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<h1>KezApp</h1>
+<input type="text" [(ngModel)]='nickName'>&nbsp;
+<button type="button" (click)="registrazione()">Registrazione</button>
+<hr>
 
+<div *ngIf="mostra">
+  <input type="text" [(ngModel)]='messaggio'>&nbsp;
+  <button type="button" (click)="inviaATutti()">Invia a tutti!</button>
+  <br>
+  <!-- <button type="button" (click)="riempiTabelle()">RiempiTabelle!</button> -->
+  <br>
+  <h2>Contatti</h2>
+
+  <table st-table="mostraContatti"  st-safe-src="contatti" class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1">
+          <input st-search placeholder="Cerca" class="input-sm form-control" type="search"/>
+        </th>
+      </tr>
+      <tr>
+        <th st-sort="nome">Nome</th>
+        <th st-sort="cellulare">Cellulare</th>
+        <th st-sort="email">Email</th>
+        <th st-sort="indirizzo">Indirizzo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr st-select-row="row" st-select-mode="multiple" righeContatti.length=20 *ngFor="let r of righeContatti">
+        <td>{{r.nome}}</td>
+        <td>{{r.cellulare}}</td>
+        <td>{{r.email}}</td>
+        <td>{{r.indirizzo}}</td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td colspan="4" class="text-center">
+          <div st-pagination="" st-items-by-page="5"></div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <hr>
+  <h2>Messaggi ricevuti</h2>
+  <button type="button" (click)="aggiorna()">Aggiorna!</button>
+  <hr>
+
+  <table st-table="mostraMessaggi"  st-safe-src="contatti" class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="1">
+          <input st-search placeholder="Cerca" class="input-sm form-control" type="search"/>
+        </th>
+      </tr>
+      <tr>
+        <th st-sort="nome">Nome</th>
+        <th st-sort="messaggio">Messaggio</th>
+        <th st-sort="data">Data</th>
+        <th st-sort="ora">Ora</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr st-select-row="row" st-select-mode="multiple" *ngFor="let r of righeMessaggi">
+        <td>{{r.nome}}</td>
+        <td>{{r.messaggio}}</td>
+        <td>{{r.data}}</td>
+        <td>{{r.ora}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" class="text-center">
+          <div st-pagination="" st-items-by-page="5"></div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<p>Ciao!</p>
