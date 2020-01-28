@@ -15,4 +15,28 @@ public class KezappController00 {
         return rx;
     }
 
+    @RequestMapping(value = "/inviaTutti00")
+    public RegistrazioneDto00 inviaTutti() {
+        System.out.println("Siamo in inviaTutti!");
+        RegistrazioneDto00 rx = new RegistrazioneDto00();
+        rx.setSessione("123stella!");
+        return rx;
+    }
+
+    @RequestMapping(value = "/inviaUno00")
+    public RegistrazioneDto00 inviaUno() {
+        System.out.println("Siamo in inviaUno!");
+        RegistrazioneDto00 rx = new RegistrazioneDto00();
+        rx.setSessione("123stella!");
+        return rx;
+    }
+
+    @RequestMapping(value = "/aggiorna00")
+    public RegistrazioneDto00 aggiorna() {
+        System.out.println("Siamo in aggiorna!");
+        RegistrazioneDto00 rx = new RegistrazioneDto00();
+        rx.setSessione("123stella!");
+        return rx;
+    }
+
 }
