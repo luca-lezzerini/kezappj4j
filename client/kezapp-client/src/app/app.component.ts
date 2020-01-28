@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'kezapp-client';
+  nickName: string;
+  messaggio: string;
+  righe:string[]
+  sessione: string;
 }

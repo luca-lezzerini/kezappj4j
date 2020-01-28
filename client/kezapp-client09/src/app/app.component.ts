@@ -1,3 +1,4 @@
+import { RichiediMessaggioDto } from './richiedimessaggio';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Kezappclient09';
+  nickName: string ;
+  messaggio: string ;
+  righe: string [];
+  sessione: string='aiuto';
+  registrazione(RichiediMessaggioDto){
+
+  }
 }
+
