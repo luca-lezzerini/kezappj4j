@@ -9,18 +9,18 @@ package com.example.kezapp.model;
  *
  * @author utente
  */
-public class InviaMessaggioDTO16 {
+public class InviaMessaggioDto16 {
     private String messaggio;
     private String sessione;
     private String destinatario;
 
-    public InviaMessaggioDTO16(String messaggio, String sessione, String destinatario) {
+    public InviaMessaggioDto16(String messaggio, String sessione, String destinatario) {
         this.messaggio = messaggio;
         this.sessione = sessione;
         this.destinatario = destinatario;
     }
 
-    public InviaMessaggioDTO16() {
+    public InviaMessaggioDto16() {
     }
 
     

@@ -13,6 +13,15 @@ public class Chat05 {
     private Long id;
     private String sessione;
     private String nickname;
+    
+     public Chat05() {
+    }
+    
+    public Chat05(Long id, String sessione, String nickname) {
+        this.id = id;
+        this.sessione = sessione;
+        this.nickname = nickname;
+    }
 
     public Long getId() {
         if (id == null){
@@ -39,16 +48,5 @@ public class Chat05 {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
-    }
-
-    public Chat05(Long id, String sessione, String nickname) {
-        this.id = id;
-        this.sessione = sessione;
-        this.nickname = nickname;
-    }
-
-    public Chat05() {
-    }
-    
-    
+    }    
 }
