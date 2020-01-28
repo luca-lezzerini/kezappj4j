@@ -10,9 +10,22 @@ public class KezappController02 {
     @RequestMapping(value = "/registrazione02")
     public RegistrazioneDto02 registrazione() {
         System.out.println("Siamo in registrazione!");
-        RegistrazioneDto02 rx = new RegistrazioneDto02();
-        rx.setSessione("123stella!");
-        return rx;
+        return new RegistrazioneDto02();
+    }
+    @RequestMapping(value = "/inviaTutti02")
+    public RegistrazioneDto02 inviaTutti() {
+        System.out.println("Siamo in registrazione!");
+        return new RegistrazioneDto02();
+    }
+    @RequestMapping(value = "/inviaUno02")
+    public RegistrazioneDto02 inviaUno() {
+        System.out.println("Siamo in registrazione!");
+        return new RegistrazioneDto02();
+    }
+    @RequestMapping(value = "/aggiorna02")
+    public RegistrazioneDto02 aggiorna() {
+        System.out.println("Siamo in registrazione!");
+        return new RegistrazioneDto02();
     }
 
 }
