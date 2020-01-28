@@ -10,33 +10,37 @@ package com.example.kezapp.model;
  * @author utente
  */
 public class Chat08 {
-    private long id;
-    private String nickName;
+    private Long id;
+    private String nickname;
     private String session;
 
     public Chat08() {
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public Chat08(long id, String nickName, String session) {
+    public Chat08(long id, String nickname, String session) {
         this.id = id;
-        this.nickName = nickName;
+        this.nickname = nickname;
         this.session = session;
     }
-
+    
+    public Long getId() {
+        if(id== null){
+            id = 0L;
+        }
+        return id;
+    }
+    
     public void setId(long id) {
         this.id = id;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getNickname() {
+             
+        return nickname;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getSession() {

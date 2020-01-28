@@ -15,6 +15,16 @@ public class Messaggio05 {
     private String aliasDestinatario;
     private String aliasMittente;
 
+    public Messaggio05(Long id, String testo, String aliasDestinatario, String aliasMittente) {
+        this.id = id;
+        this.testo = testo;
+        this.aliasDestinatario = aliasDestinatario;
+        this.aliasMittente = aliasMittente;
+    }
+    
+    public Messaggio05() {
+    }
+    
     public Long getId() {
         if(id == null){
             id = 0L;
@@ -48,18 +58,5 @@ public class Messaggio05 {
 
     public void setAliasMittente(String aliasMittente) {
         this.aliasMittente = aliasMittente;
-    }
-
-    public Messaggio05(Long id, String testo, String aliasDestinatario, String aliasMittente) {
-        this.id = id;
-        this.testo = testo;
-        this.aliasDestinatario = aliasDestinatario;
-        this.aliasMittente = aliasMittente;
-    }
-
-    public Messaggio05() {
-    }
-    
-    
-           
+    }      
 }
