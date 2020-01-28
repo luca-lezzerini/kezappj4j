@@ -5,6 +5,7 @@
  */
 package com.example.kezapp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,17 +14,20 @@ import java.util.List;
  */
 public class RegistrazioneDto17 {
     private List<Chat17> contatti;
-    private List<Chat17> messaggi;
+    private List<Messaggio17> messaggi;
     private String sessione;
 
     public RegistrazioneDto17() {
+        contatti = new ArrayList<>();
+        messaggi = new ArrayList<>();
     }
 
-    public RegistrazioneDto17(List<Chat17> contatti, List<Chat17> messaggi, String sessione) {
+    public RegistrazioneDto17(List<Chat17> contatti, List<Messaggio17> messaggi, String sessione) {
         this.contatti = contatti;
         this.messaggi = messaggi;
         this.sessione = sessione;
     }
+
 
     public List<Chat17> getContatti() {
         return contatti;
@@ -33,11 +37,11 @@ public class RegistrazioneDto17 {
         this.contatti = contatti;
     }
 
-    public List<Chat17> getMessaggi() {
+    public List<Messaggio17> getMessaggi() {
         return messaggi;
     }
 
-    public void setMessaggi(List<Chat17> messaggi) {
+    public void setMessaggi(List<Messaggio17> messaggi) {
         this.messaggi = messaggi;
     }
 
