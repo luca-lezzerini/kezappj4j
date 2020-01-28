@@ -1,0 +1,75 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <input type="text" [(ngModel)]="nickName">
+  <button type="button" (click)="nascondiTesto()">Registrazione</button>
+</div>
+  <br>
+  <div *ngIf = "mostraTesto">
+  <input type="text" [(ngModel)]="Messaggio">
+  <button type="button" (click)="inviaATutti()">Invia A Tutti</button>
+  <br>
+  Contatti
+  <table>
+    
+      <tr *ngFor = "let r of righe">
+        <th>Column 0</th>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+      </tr>
+      <tr>
+        <td>Row 1</td>
+        <td>text</td>
+        <td>text</td>
+        <td>text</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+        <td>text</td>
+        <td>text</td>
+        <td>text</td>
+      </tr>
+      <tr>
+        <td>Row 3</td>
+        <td>text</td>
+        <td>text</td>
+        <td>text</td>
+      </tr>
+    
+    
+  </table>
+  <br>
+  Messaggi Ricevuti<input type="button" value="Aggiorna">
+  <br>
+  <table>
+    
+      <tr>
+        <td>Column 0</td>
+        <td>Column 1</td>
+        <td>Column 2</td>
+        <td>Column 3</td>
+      </tr>
+      <tr>
+        <td>Row 1</td>
+        <td>text</td>
+        <td>text</td>
+        <td>text</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+        <td>text</td>
+        <td>text</td>
+        <td>text</td>
+      </tr>
+      <tr>
+        <td>Row 3</td>
+        <td>text</td>
+        <td>text</td>
+        <td>text</td>
+      </tr>
+    
+  </table>
+</div>
+
+
+
