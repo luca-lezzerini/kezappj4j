@@ -12,7 +12,7 @@ package com.example.kezapp.model;
 public class Chat03 {
     private Long id;
 
-    public long getId() {
+    public Long getId() {
         if (id == null){
             id = 0L;
         }
