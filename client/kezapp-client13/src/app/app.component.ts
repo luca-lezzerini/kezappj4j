@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'kezapp-client13';
-}
+  nickName: string;
+  messaggio: string;
+  righe: string[];
+  sessione: string;
+
+
+  apparire(sessione: string) {
+     if (sessione == null) {
+        return true;
+     } else {
+      return false;
+     }
+
+  }
+
+
+ }
+
