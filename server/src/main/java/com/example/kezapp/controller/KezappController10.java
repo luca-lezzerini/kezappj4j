@@ -17,19 +17,19 @@ public class KezappController10 {
         return rx;
     }
     
-    @RequestMapping(value = "/inviaatutti10")
+    @RequestMapping(value = "/inviatutti10")
     public RegistrazioneDto10 inviaTutti(){
-        System.out.println("Siamo in Invia a tutti!");
+        System.out.println("Siamo in Invia Tutti!");
         RegistrazioneDto10 rx = new RegistrazioneDto10();
-        rx.setSessione("Sessione Invia a tutti");
+        rx.setSessione("Sessione Invia Tutti");
         return rx;
     }
     
-    @RequestMapping(value = "/inviaauno10")
+    @RequestMapping(value = "/inviauno10")
     public RegistrazioneDto10 inviaUno(){
-        System.out.println("Siamo in Invia A Uno!");
+        System.out.println("Siamo in Invia Uno!");
         RegistrazioneDto10 rx = new RegistrazioneDto10();
-        rx.setSessione("Sessione Invia a uno!");
+        rx.setSessione("Sessione Invia Uno!");
         return rx;
     }
    
