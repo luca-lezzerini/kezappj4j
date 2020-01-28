@@ -5,33 +5,21 @@
  */
 package com.example.kezapp.model;
 
-import java.util.List;
-
 /**
  *
  * @author utente
  */
-public class RegistrazioneDto {
-    private List<Chat17> contatti;
-    private List<Chat17> messaggi;
+public class RichiediMessaggioDTO {
     private String sessione;
 
-    public List<Chat17> getContatti() {
-        return contatti;
+    public RichiediMessaggioDTO(String sessione) {
+        this.sessione = sessione;
     }
 
-    public void setContatti(List<Chat17> contatti) {
-        this.contatti = contatti;
+    public RichiediMessaggioDTO() {
     }
 
-    public List<Chat17> getMessaggi() {
-        return messaggi;
-    }
-
-    public void setMessaggi(List<Chat17> messaggi) {
-        this.messaggi = messaggi;
-    }
-
+    
     public String getSessione() {
         return sessione;
     }

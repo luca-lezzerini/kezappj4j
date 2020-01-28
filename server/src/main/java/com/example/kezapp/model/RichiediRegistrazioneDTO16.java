@@ -9,9 +9,17 @@ package com.example.kezapp.model;
  *
  * @author utente
  */
-public class RichiediRegistrazioneDto {
+public class RichiediRegistrazioneDTO16 {
     private String nickname;
 
+    public RichiediRegistrazioneDTO16(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public RichiediRegistrazioneDTO16() {
+    }
+
+    
     public String getNickname() {
         return nickname;
     }
