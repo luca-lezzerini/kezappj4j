@@ -16,14 +16,14 @@ public class RegistrazioneDto05 {
     private ArrayList<Chat05> contatti;
     private ArrayList<Messaggio05> messaggi;
     private String sessione;
+    
+    public RegistrazioneDto05() {
+    }
 
     public RegistrazioneDto05(ArrayList<Chat05> contatti, ArrayList<Messaggio05> messaggi, String sessione) {
         this.contatti = contatti;
         this.messaggi = messaggi;
         this.sessione = sessione;
-    }
-
-    public RegistrazioneDto05() {
     }
 
     public ArrayList<Chat05> getContatti() {

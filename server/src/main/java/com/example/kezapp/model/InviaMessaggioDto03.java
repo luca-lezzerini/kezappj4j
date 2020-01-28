@@ -9,14 +9,17 @@ package com.example.kezapp.model;
  *
  * @author utente
  */
-public class RichiediMessaggioDto17 {
+public class InviaMessaggioDto03 {
+    private String messaggio;
     private String sessione;
+    private String destinatario;
 
-    public RichiediMessaggioDto17() {
+    public String getMessaggio() {
+        return messaggio;
     }
 
-    public RichiediMessaggioDto17(String sessione) {
-        this.sessione = sessione;
+    public void setMessaggio(String messaggio) {
+        this.messaggio = messaggio;
     }
 
     public String getSessione() {
@@ -26,6 +29,13 @@ public class RichiediMessaggioDto17 {
     public void setSessione(String sessione) {
         this.sessione = sessione;
     }
-    
+
+    public String getDestinatario() {
+        return destinatario;
+    }
+
+    public void setDestinatario(String destinatario) {
+        this.destinatario = destinatario;
+    }
     
 }

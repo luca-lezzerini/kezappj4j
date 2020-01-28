@@ -9,16 +9,17 @@ package com.example.kezapp.model;
  *
  * @author utente
  */
-public class RichiediRegistrazioneDto05 {
+public class RichiediRegistrazioneDto16 {
     private String nickname;
-    
-    public RichiediRegistrazioneDto05() {
-    }
-    
-    public RichiediRegistrazioneDto05(String nickname) {
+
+    public RichiediRegistrazioneDto16(String nickname) {
         this.nickname = nickname;
     }
 
+    public RichiediRegistrazioneDto16() {
+    }
+
+    
     public String getNickname() {
         return nickname;
     }
@@ -26,6 +27,5 @@ public class RichiediRegistrazioneDto05 {
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
-
     
 }

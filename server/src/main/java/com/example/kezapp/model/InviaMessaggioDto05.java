@@ -13,6 +13,15 @@ public class InviaMessaggioDto05 {
     private String messaggio;
     private String sessione;
     private String Destinatario;
+    
+    public InviaMessaggioDto05() {
+    }
+    
+    public InviaMessaggioDto05(String messaggio, String sessione, String Destinatario) {
+        this.messaggio = messaggio;
+        this.sessione = sessione;
+        this.Destinatario = Destinatario;
+    }
 
     public String getMessaggio() {
         return messaggio;
@@ -38,15 +47,4 @@ public class InviaMessaggioDto05 {
         this.Destinatario = Destinatario;
     }
 
-    public InviaMessaggioDto05(String messaggio, String sessione, String Destinatario) {
-        this.messaggio = messaggio;
-        this.sessione = sessione;
-        this.Destinatario = Destinatario;
-    }
-
-    public InviaMessaggioDto05() {
-    }
-    
-    
-    
 }
