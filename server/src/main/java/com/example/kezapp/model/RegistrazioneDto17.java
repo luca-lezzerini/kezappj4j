@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author utente
  */
-public class RegistrazioneDto {
+public class RegistrazioneDto17 {
     private List<Chat17> contatti;
     private List<Chat17> messaggi;
     private String sessione;
