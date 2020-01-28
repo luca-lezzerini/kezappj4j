@@ -9,24 +9,24 @@ package com.example.kezapp.model;
  *
  * @author utente
  */
-public class Messaggio17 {
+public class Messaggio12 {
     private Long id;
     private String testo;
     private String aliasDestinatario;
     private String aliasMittente;
 
-    public Messaggio17() {
-    }
-
-    public Messaggio17(Long id, String testo, String aliasDestinatario, String aliasMittente) {
+    public Messaggio12(Long id, String testo, String aliasDestinatario, String aliasMittente) {
         this.id = id;
         this.testo = testo;
         this.aliasDestinatario = aliasDestinatario;
         this.aliasMittente = aliasMittente;
     }
 
+    public Messaggio12() {
+    }
+
     public Long getId() {
-        if(id == null){
+        if(id==null){
             id = 0L;
         }
         return id;
@@ -59,6 +59,5 @@ public class Messaggio17 {
     public void setAliasMittente(String aliasMittente) {
         this.aliasMittente = aliasMittente;
     }
-    
     
 }

@@ -11,24 +11,34 @@ import java.util.List;
  *
  * @author utente
  */
-public class RegistrazioneDto {
-    private List<Chat17> contatti;
-    private List<Chat17> messaggi;
+public class RegistrazioneDto16 {
+    private List<Chat16> contatti;
+    private List<Messaggio16> messaggi;
     private String sessione;
 
-    public List<Chat17> getContatti() {
+    public RegistrazioneDto16(List<Chat16> contatti, List<Messaggio16> messaggi, String sessione) {
+        this.contatti = contatti;
+        this.messaggi = messaggi;
+        this.sessione = sessione;
+    }
+
+    public RegistrazioneDto16() {
+    }
+
+    
+    public List<Chat16> getContatti() {
         return contatti;
     }
 
-    public void setContatti(List<Chat17> contatti) {
+    public void setContatti(List<Chat16> contatti) {
         this.contatti = contatti;
     }
 
-    public List<Chat17> getMessaggi() {
+    public List<Messaggio16> getMessaggi() {
         return messaggi;
     }
 
-    public void setMessaggi(List<Chat17> messaggi) {
+    public void setMessaggi(List<Messaggio16> messaggi) {
         this.messaggi = messaggi;
     }
 
@@ -39,5 +49,6 @@ public class RegistrazioneDto {
     public void setSessione(String sessione) {
         this.sessione = sessione;
     }
+    
     
 }

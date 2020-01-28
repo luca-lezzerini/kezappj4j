@@ -1,33 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.example.kezapp.model;
 
-/**
- *
- * @author utente
- */
-public class Messaggio17 {
+
+public class Messaggio07 {
     private Long id;
     private String testo;
     private String aliasDestinatario;
     private String aliasMittente;
 
-    public Messaggio17() {
-    }
-
-    public Messaggio17(Long id, String testo, String aliasDestinatario, String aliasMittente) {
-        this.id = id;
-        this.testo = testo;
-        this.aliasDestinatario = aliasDestinatario;
-        this.aliasMittente = aliasMittente;
-    }
-
     public Long getId() {
-        if(id == null){
-            id = 0L;
+        if(id==null){
+            id=0L;
         }
         return id;
     }
@@ -59,6 +42,15 @@ public class Messaggio17 {
     public void setAliasMittente(String aliasMittente) {
         this.aliasMittente = aliasMittente;
     }
-    
+
+    public Messaggio07(Long id, String testo, String aliasDestinatario, String aliasMittente) {
+        this.id = id;
+        this.testo = testo;
+        this.aliasDestinatario = aliasDestinatario;
+        this.aliasMittente = aliasMittente;
+    }
+
+    public Messaggio07() {
+    }
     
 }

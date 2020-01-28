@@ -9,31 +9,16 @@ package com.example.kezapp.model;
  *
  * @author utente
  */
-public class Chat16 {
- private Long id;
- private String nickname;
- private String sessione;
+public class RichiediMessaggioDto12 {
+    private String sessione;
 
-    public Long getId() { 
-        if (id == null){
-            id= 0L;
-        }
-        return id;
+    public RichiediMessaggioDto12(String sessione) {
+        this.sessione = sessione;
     }
 
-    public void setId(Long id) {
-        
-        this.id = id;
+    public RichiediMessaggioDto12() {
     }
-
-    public String getNickName() {
-        return nickname;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickname = nickName;
-    }
-
+    
     public String getSessione() {
         return sessione;
     }
@@ -41,5 +26,7 @@ public class Chat16 {
     public void setSessione(String sessione) {
         this.sessione = sessione;
     }
- 
+
+    
+    
 }
