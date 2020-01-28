@@ -9,14 +9,14 @@ package com.example.kezapp.model;
  *
  * @author utente
  */
-public class RichiediMessaggioDto12 {
+public class RichiediMessaggiDto12 {
     private String sessione;
 
-    public RichiediMessaggioDto12(String sessione) {
+    public RichiediMessaggiDto12(String sessione) {
         this.sessione = sessione;
     }
 
-    public RichiediMessaggioDto12() {
+    public RichiediMessaggiDto12() {
     }
     
     public String getSessione() {
