@@ -1,5 +1,6 @@
 package com.example.kezapp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,6 +11,8 @@ public class RegistrazioneDto02 {
     private String sessione;
 
     public RegistrazioneDto02() {
+        contatti = new ArrayList<>();
+        messaggi = new ArrayList<>();
     }
 
     public RegistrazioneDto02(List<Chat02> contatti, List<Messaggio02> messaggi, String sessione) {
