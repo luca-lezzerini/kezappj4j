@@ -1,18 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.kezapp.model;
 
-/**
- *
- * @author utente
- */
-public class Chat17 {
+public class Chat10 {
+    
     private Long id;
     private String nickname;
     private String sessione;
+
+    public Chat10() {
+    }
+
+    public Chat10(Long id, String nickname, String sessione) {
+        this.id = id;
+        this.nickname = nickname;
+        this.sessione = sessione;
+    }
+    
+    
 
     public Long getId() {
         if(id == null){
@@ -40,5 +43,6 @@ public class Chat17 {
     public void setSessione(String sessione) {
         this.sessione = sessione;
     }
+    
     
 }

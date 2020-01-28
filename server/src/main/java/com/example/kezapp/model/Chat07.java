@@ -8,6 +8,9 @@ public class Chat07 {
     private String sessione;
 
     public Long getId() {
+        if(id==null){
+            id=0L;
+        }
         return id;
     }
 
@@ -29,6 +32,15 @@ public class Chat07 {
 
     public void setSessione(String sessione) {
         this.sessione = sessione;
+    }
+
+    public Chat07(Long id, String nickname, String sessione) {
+        this.id = id;
+        this.nickname = nickname;
+        this.sessione = sessione;
+    }
+
+    public Chat07() {
     }
     
     

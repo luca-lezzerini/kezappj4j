@@ -5,32 +5,31 @@
  */
 package com.example.kezapp.model;
 
+import java.util.List;
+
 /**
  *
  * @author utente
  */
-public class Chat17 {
-    private Long id;
-    private String nickname;
+public class RegistrazioneDto {
+    private List<Chat17> contatti;
+    private List<Chat17> messaggi;
     private String sessione;
 
-    public Long getId() {
-        if(id == null){
-            id = 0L;
-        }
-        return id;
+    public List<Chat17> getContatti() {
+        return contatti;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setContatti(List<Chat17> contatti) {
+        this.contatti = contatti;
     }
 
-    public String getNickname() {
-        return nickname;
+    public List<Chat17> getMessaggi() {
+        return messaggi;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setMessaggi(List<Chat17> messaggi) {
+        this.messaggi = messaggi;
     }
 
     public String getSessione() {
