@@ -12,6 +12,13 @@ package com.example.kezapp.model;
 public class RichiediMessaggioDto17 {
     private String sessione;
 
+    public RichiediMessaggioDto17() {
+    }
+
+    public RichiediMessaggioDto17(String sessione) {
+        this.sessione = sessione;
+    }
+
     public String getSessione() {
         return sessione;
     }

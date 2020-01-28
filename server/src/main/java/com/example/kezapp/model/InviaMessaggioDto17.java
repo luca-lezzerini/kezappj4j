@@ -14,6 +14,15 @@ public class InviaMessaggioDto17 {
     private String sessione;
     private String destinatario;
 
+    public InviaMessaggioDto17() {
+    }
+
+    public InviaMessaggioDto17(String messaggio, String sessione, String destinatario) {
+        this.messaggio = messaggio;
+        this.sessione = sessione;
+        this.destinatario = destinatario;
+    }
+
     public String getMessaggio() {
         return messaggio;
     }
