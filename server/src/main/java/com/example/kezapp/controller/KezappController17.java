@@ -26,4 +26,16 @@ public class KezappController17 {
         rx.setSessione("113stella");
         return new RegistrazioneDto17();
     }
+    
+//    public RegistrazioneDto17 inviaATutti(){
+//        return null;
+//    }
+//    
+//    public RegistrazioneDto17 inviaAUno(){
+//        return null;
+//    }
+//    
+//    public RegistrazioneDto17 aggiorna(){
+//        return null;
+//    }
 }
