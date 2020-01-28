@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kezapp-client12';
+  nickname :string;
+  messaggio :string;
+  righe : string[];
+  sessione= "ciao";
+  colonne : string[];
+
+  sessioneAttiva(sessione: string){
+    if(this.sessione==null){
+     return false;
+    }else{
+      return true;
+    }
+   
+    
+  }
 }
