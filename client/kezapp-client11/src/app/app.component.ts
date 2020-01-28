@@ -9,6 +9,7 @@ export class AppComponent {
   nickName: string;
   messaggio: string;
   righe: string[];
+  
 
   Chat(){
 
