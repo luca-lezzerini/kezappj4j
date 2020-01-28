@@ -9,7 +9,7 @@ package com.example.kezapp.model;
  *
  * @author utente
  */
-public class InviaMessaggioDto {
+public class InviaMessaggioDto17 {
     private String messaggio;
     private String sessione;
     private String destinatario;
