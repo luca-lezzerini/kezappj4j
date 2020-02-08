@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'kezapp-client03';
+  nickname: string;
+  messaggio: string;
+  righe: Array;
+  sessione:
 }
+
+
+
