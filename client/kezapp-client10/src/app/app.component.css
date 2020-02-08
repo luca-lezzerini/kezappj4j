@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(47, 194, 113);
+}
+
+h1{
+    text-shadow: 2px 1px black;
+    color: rgb(255, 255, 255);
+}
+h2{
+    text-shadow: 1px 1px black;
+    color: rgb(255, 255, 255);
+}
