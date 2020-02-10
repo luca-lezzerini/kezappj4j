@@ -1,0 +1,16 @@
+div.center {
+  text-align: center;
+}
+
+div.center>table {
+  margin: auto;
+}
+
+input {
+  background-color: lightgreen;
+}
+
+button {
+  background-color: lightseagreen;
+  font-weight: bold;
+}

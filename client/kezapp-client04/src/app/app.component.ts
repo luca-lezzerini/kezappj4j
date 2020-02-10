@@ -1,5 +1,8 @@
-import { InviaMessaggioDto } from './classi/inviaMessaggioDto';
-import { RichiediRegistrazioneDto } from './classi/richiediRegistrazioneDto';
+import { Chat } from './chat';
+import { Messaggio } from './messaggio';
+import { RegistrazioneDto } from './registrazione-dto';
+import { InviaMessaggioDto } from './invia-messaggio-dto';
+import { RichiediRegistrazioneDto } from './richiedi-registrazione-dto';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -13,31 +16,38 @@ export class AppComponent {
 
   nickName: string;
   messaggio: string;
-  righe: string[];
   sessione: string;
-  reg: RichiediRegistrazioneDto;
-  send: InviaMessaggioDto;
+  messaggi: Messaggio[] = [];
+  contatti: Chat[] = [];
 
-  constructor(private http: HttpClient) {
 
-  }
+  constructor(private http: HttpClient) { }
 
   registrazione() {
-    this.reg = new RichiediRegistrazioneDto();
-    this.reg.nickname = this.nickName;
-    this.sessione = this.nickName;
-    let obs: Observable<RichiediRegistrazioneDto> = this.http.get<RichiediRegistrazioneDto>('http://localhost:8080/KezappController04')
-    obs.subscribe(s => this.sessione = s);
+    // creazione dto con file da inviare
+    const reg: RichiediRegistrazioneDto = new RichiediRegistrazioneDto();
+    reg.nickname = this.nickName;
+
+    // preparo la richiesta HTTP
+    const obs: Observable<RegistrazioneDto> = this.http.post<RegistrazioneDto>('http://localhost:8080/registrazione04', reg);
+
+    // creo la callback
+    obs.subscribe(risposta => {
+      this.messaggi = risposta.messaggi;
+      this.contatti = risposta.contatti;
+      this.sessione = risposta.sessione;
+    });
   }
 
   inviaATutti() {
-    this.send = new InviaMessaggioDto();
-    this.send.destinatario = null;
-    this.send.messaggio = this.messaggio;
-    this.send.sessione = this.sessione;
+    const send: InviaMessaggioDto = new InviaMessaggioDto();
+    send.destinatario = null;
+    send.messaggio = this.messaggio;
+    send.sessione = this.sessione;
+    const obs: Observable<InviaMessaggioDto> = this.http.post<InviaMessaggioDto>('http://localhost:8080/inviaTutti04', send);
   }
 
-  invia() {
+  invia(i: number) {
 
   }
 
