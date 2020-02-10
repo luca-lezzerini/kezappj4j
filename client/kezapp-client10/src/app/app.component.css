@@ -1,23 +1,21 @@
 body{
-    background-color: rgb(47, 194, 113);
-}
-
-h1{
-    text-shadow: 2px 1px black;
-    color: rgb(255, 255, 255);
-}
-h2{
-    text-shadow: 1px 1px black;
-    color: rgb(255, 255, 255);
-}
-
-div.registrazione{
-    display: flex;
+    font-family: monospace;
+    color: rgb(34, 180, 34);
     text-align: center;
+    background-color: black;
+}
+div.registrazione{
+    align-items: center;
 }
 
 table{
-    text-align: center;
-    width: 40%;
-    border: 2px solid black;
+    border: 2px solid rgb(34, 180, 34);
+}
+
+button{
+    text-decoration: underline;
+    border-color: rgb(34, 180, 34);
+    border-style: double;
+    color: rgb(34, 180, 34);
+    background-color: black;
 }

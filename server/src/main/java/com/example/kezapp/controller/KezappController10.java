@@ -4,6 +4,7 @@ import com.example.kezapp.model.Chat10;
 import com.example.kezapp.model.InviaMessaggioDto10;
 import com.example.kezapp.model.Messaggio10;
 import com.example.kezapp.model.RegistrazioneDto10;
+import com.example.kezapp.model.RichiediMessaggiDto10;
 import com.example.kezapp.model.RichiediRegistrazioneDto10;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class KezappController10 {
     
-    List<Chat10> chats = new ArrayList<Chat10>();
+    List<Chat10> chats = new ArrayList<>();
     List<Messaggio10> msgs = new ArrayList<>();
     
     @RequestMapping(value = "/registrazione10")
@@ -97,8 +98,8 @@ public class KezappController10 {
             
             //ritorno i contatti
             List<Chat10> listaContatti = chats.parallelStream()
-            .filter(c -> !(c.getSessione().equals(dto.getSessione())))
-            .collect(Collectors.toList());
+                .filter(c -> !(c.getSessione().equals(dto.getSessione())))
+                .collect(Collectors.toList());
             
             //ritorno i messaggi
             Chat10 cy = cx;
@@ -116,22 +117,45 @@ public class KezappController10 {
         //rx.setSessione("Sessione Invia Tutti!");
         return rx;
     }
-    
-    @RequestMapping(value = "/inviauno10")
-    @ResponseBody
-    public RegistrazioneDto10 inviaUno(@RequestBody InviaMessaggioDto10 dto){
-        System.out.println("Siamo in Invia Uno!");
-        RegistrazioneDto10 rx = new RegistrazioneDto10();
-        rx.setSessione("Sessione Invia Uno!");
-        return rx;
-    }
    
     @RequestMapping(value = "/aggiorna10")
-    public RegistrazioneDto10 aggiorna(){
+    @ResponseBody
+    public RegistrazioneDto10 aggiorna(@RequestBody RichiediMessaggiDto10 dto){
         System.out.println("Siamo in aggiorna!");
+        //cerco anche qui se esiste la sessione dato che é l'unica cosa che mi serve oltre a messaggi e contatti
+        boolean trovata = false;
+        Chat10 cx = null;
+        for( Chat10 chat : chats ){
+            if(chat.getSessione().equalsIgnoreCase(dto.getSessione())){
+                trovata = true;
+                cx = chat;
+                break;
+            }
+        }
+        
+        //Preparo la variabile per la risposta
         RegistrazioneDto10 rx = new RegistrazioneDto10();
-        rx.setSessione("Sessione Aggiorna!");
+        
+        if(trovata){
+            //ritorno i contatti
+            List<Chat10> listaContatti = chats.parallelStream()
+                .collect(Collectors.toList());
+            
+            //ritorno i messaggi
+            List<Messaggio10> listaMessaggi = msgs.parallelStream()
+                .collect(Collectors.toList());
+            
+            rx.setContatti(listaContatti);
+            rx.setMessaggi(listaMessaggi);
+        }else{
+            //...se non esiste non aggiungo nulla e ritorno vuoto
+            rx.setContatti(Collections.emptyList());
+            rx.setMessaggi(Collections.emptyList());
+            System.out.println("NIENTE");
+        }
+        
+        //rx.setSessione("Sessione Invia Tutti!");
         return rx;
     }
-
+    
 }
