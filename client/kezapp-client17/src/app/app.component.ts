@@ -1,5 +1,5 @@
 import { InviaMessaggioDto } from './invia-messaggio-dto';
-import { RichiediRegistrazioneDto } from './richiedi-registrazione- dto';
+import { RichiediRegistrazioneDto } from './richiedi-registrazione-dto';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Messaggio } from './Messaggio';
