@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  *
  * @author utente
- */@RestController
+ */
+@RestController
 public class KezappController03 {
 
     /**
