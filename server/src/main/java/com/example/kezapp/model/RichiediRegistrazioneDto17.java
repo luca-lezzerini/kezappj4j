@@ -7,7 +7,7 @@ package com.example.kezapp.model;
 
 /**
  *
- * @author utente
+ * @author Alessandro G.
  */
 public class RichiediRegistrazioneDto17 {
     private String nickname;

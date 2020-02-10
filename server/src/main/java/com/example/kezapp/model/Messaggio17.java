@@ -7,7 +7,7 @@ package com.example.kezapp.model;
 
 /**
  *
- * @author utente
+ * @author Alessandro G.
  */
 public class Messaggio17 {
     private Long id;
