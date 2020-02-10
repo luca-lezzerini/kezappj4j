@@ -13,8 +13,8 @@ import java.util.List;
  * @author utente
  */
 public class RegistrazioneDto05 {
-    private ArrayList<Chat05> contatti;
-    private ArrayList<Messaggio05> messaggi;
+    private List<Chat05> contatti;
+    private List<Messaggio05> messaggi;
     private String sessione;
     
     public RegistrazioneDto05() {
@@ -26,19 +26,19 @@ public class RegistrazioneDto05 {
         this.sessione = sessione;
     }
 
-    public ArrayList<Chat05> getContatti() {
+    public List<Chat05> getContatti() {
         return contatti;
     }
 
-    public void setContatti(ArrayList<Chat05> contatti) {
+    public void setContatti(List<Chat05> contatti) {
         this.contatti = contatti;
     }
 
-    public ArrayList<Messaggio05> getMessaggi() {
+    public List<Messaggio05> getMessaggi() {
         return messaggi;
     }
 
-    public void setMessaggi(ArrayList<Messaggio05> messaggi) {
+    public void setMessaggi(List<Messaggio05> messaggi) {
         this.messaggi = messaggi;
     }
 
@@ -50,5 +50,6 @@ public class RegistrazioneDto05 {
         this.sessione = sessione;
     }
     
-    
 }
+
+    
