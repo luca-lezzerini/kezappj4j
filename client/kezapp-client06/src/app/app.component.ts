@@ -23,41 +23,41 @@ export class AppComponent {
   constructor(private http: HttpClient) {}
 
   registrazione() {
+    // creo il dto con i dati da inviare
     let dx: RichiediRegistrazioneDto = new RichiediRegistrazioneDto();
     dx.nickname = this.nickname;
-    // preparare richiesta http
-    let oss: Observable<RegistrazioneDto> = this.http.post<RegistrazioneDto>(
-      'http://localhost:8080/registrazione06',
-      dx
-    );
+
+    // preparo la richiesta HTTP
+    let oss: Observable<RegistrazioneDto> =
+      this.http
+        .post<RegistrazioneDto>('http://localhost:8080/registrazione06', dx);
+
+    // creo la callback
     oss.subscribe(risposta => {
-      this.contatti = risposta.contatti;
+      console.log(risposta);
       this.messaggi = risposta.messaggi;
+      this.contatti = risposta.contatti;
       this.sessione = risposta.sessione;
       this.sessioneAttiva();
-      console.log('Risposta ricevuta' + risposta);
     });
   }
 
   inviaATutti() {
-    let dx: InviaMessaggioDto = new InviaMessaggioDto();
-    dx.destinatario = null;
-    dx.messaggio = this.messaggio;
-    dx.sessione = this.sessione;
-    console.log(dx.sessione);
-    let oss: Observable<RegistrazioneDto> = this.http.post<RegistrazioneDto>(
-      'http://localhost:8080/invia-tutti06',
-      dx
-    );
-    oss.subscribe(risposta => {
-      this.contatti = risposta.contatti;
-      this.messaggi = risposta.messaggi;
-      this.sessioneAttiva();
-      console.log('Messaggio inviato ' + dx.messaggio);
-      console.log(this.contatti);
-      console.log(this.messaggi);
-    });
+        // preparo di dati da inviare al server
+        let im: InviaMessaggioDto = new InviaMessaggioDto();
+        im.messaggio = this.messaggio;
+        im.destinatario = null;
+        im.sessione = this.sessione;
+
+        // invio i dati al server
+        let ox: Observable<RegistrazioneDto> =
+          this.http.post<RegistrazioneDto>('http://localhost:8080/invia-tutti06', im);
+        ox.subscribe(data => {
+          this.messaggi = data.messaggi;
+          this.contatti = data.contatti;
+        });
   }
+
   invia() {}
   aggiorna() {}
   sessioneAttiva() {

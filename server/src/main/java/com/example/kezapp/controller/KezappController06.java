@@ -1,13 +1,7 @@
 package com.example.kezapp.controller;
 
-import com.example.kezapp.model.Chat06;
-import com.example.kezapp.model.InviaMessaggioDto06;
-import com.example.kezapp.model.Messaggio06;
-import com.example.kezapp.model.RegistrazioneDto06;
-import com.example.kezapp.model.RichiediRegistrazioneDto06;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import com.example.kezapp.model.*;
+import java.util.*;
 import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +35,6 @@ public class KezappController06 {
 
             // non verifico se già esiste (FIXME)
             cx.setSessione(Double.toString(d));
-
             chats.add(cx);
 
             rx.setContatti(chats);
@@ -50,9 +43,9 @@ public class KezappController06 {
             System.out.println("Nickname non trovato");
         } else {
             // ritorno tutto vuoto in quanto non posso riutilizzare nickname
-            rx.setContatti(Collections.EMPTY_LIST);
+            rx.setContatti(Collections.emptyList());
             rx.setSessione(null);
-            rx.setMessaggi(Collections.EMPTY_LIST);
+            rx.setMessaggi(Collections.emptyList());
             System.out.println("Nickname trovato");
         }
 
@@ -62,45 +55,46 @@ public class KezappController06 {
     @RequestMapping(value = "/invia-tutti06")
     @ResponseBody
     public RegistrazioneDto06 inviaTutti(@RequestBody InviaMessaggioDto06 dto) {
-
-        RegistrazioneDto06 rx = new RegistrazioneDto06();
-        Messaggio06 msg = new Messaggio06();
-
+        System.out.println("Siamo in inviaTutti!");
+        // cerco se esiste la sessione ...
         boolean trovato = false;
         Chat06 cx = null;
-        
         for (Chat06 chat : chats) {
             if (chat.getSessione().equalsIgnoreCase(dto.getSessione())) {
                 trovato = true;
                 cx = chat;
                 break;
             }
-            if (trovato) {
-                msg.setTesto(dto.getMessaggio());
-                msg.setAliasDestinatario(dto.getDestinatario());
-                // prende il mittente tramite la sessione(?)
-                msg.setAliasMittente(dto.getSessione());
-                msgs.add(msg);
+        }
 
-                List<Chat06> listaContatti = chats.parallelStream()
-                        .filter(c -> !c.getSessione().equals(dto.getSessione()))
-                        .collect(Collectors.toList());
-                
-                Chat06 cy = cx;
-                List<Messaggio06> listaMessaggi = msgs.parallelStream()
-                        .filter(m -> !m.getAliasMittente().equals(cy.getNickname()))
-                        .collect(Collectors.toList());
-                
-                rx.setContatti(listaContatti);
-                rx.setMessaggi(listaMessaggi);                
-                System.out.println("Inviato a tutti");
-            } else {
-                // ritorno tutto vuoto in quanto non posso riutilizzare nickname
-                rx.setContatti(Collections.EMPTY_LIST);
-                rx.setMessaggi(Collections.EMPTY_LIST);
-                System.out.println("Sessione già presente");
-            }
+        RegistrazioneDto06 rx = new RegistrazioneDto06();
 
+        // ... se esiste aggiungo un messaggio e ritorno pieno
+        if (trovato) {
+            // creo nuovo messaggio
+            Messaggio06 msg = new Messaggio06();
+            msg.setTesto(dto.getMessaggio());
+            msg.setAliasMittente(cx.getNickname());
+            msg.setAliasDestinatario(null);
+
+            // aggiungo un messaggio alla lista dei messaggi
+            msgs.add(msg);
+            
+            // ritorno i contatti
+            List<Chat06> listaContatti = chats.parallelStream()
+                    .filter(c -> !(c.getSessione().equals(dto.getSessione())))
+                    .collect(Collectors.toList());
+            // ritorno i messaggi
+            Chat06 cy = cx;
+            List<Messaggio06> listaMessaggi = msgs.parallelStream()
+                    .filter( m -> !(m.getAliasMittente().equals(cy.getNickname())))
+                    .collect(Collectors.toList());
+            rx.setContatti(listaContatti);
+            rx.setMessaggi(listaMessaggi);
+        } else {
+            // ... se non esiste non aggiungo nulla e ritorno vuoto
+            rx.setContatti(Collections.emptyList());
+            rx.setMessaggi(Collections.emptyList());
         }
         return rx;
     }
