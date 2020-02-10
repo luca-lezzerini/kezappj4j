@@ -4,7 +4,7 @@
 </div>
 <div *ngIf="sessione!=null" class="chat">
   <div class="center">
-    <input type="text" [(ngModel)]="messaggio" class="messaggio"> &nbsp;
+    <input type="text" [(ngModel)]="messaggio"> &nbsp;
     <button (click)="inviaTutti()">Invia a tutti</button>
   </div>
   <br>
@@ -13,35 +13,37 @@
     <br>
     <br>
     <table>
+      <!--
       <tr>
         <th>Column 0</th>
         <th>Column 1</th>
         <th>Column 2</th>
         <th>Column 3</th>
       </tr>
-      <tr *ngFor="let r of righe">
-        <td>{{r[0]}}</td>
-        <td>{{r[1]}}</td>
-        <td>{{r[2]}}</td>
-        <td><button class="table-button">Invia</button></td>
+      -->
+      <tr *ngFor="let c of contatti">
+        <td *ngIf="c.nickname != this.nickName">{{c.nickname}}</td>
+        <td *ngIf="c.nickname != this.nickName">
+          <button class="table-button">Invia</button>
+        </td>
       </tr>
     </table>
     <br>
-    <b>Messaggi ricevuti</b> &nbsp; <button>Aggiorna</button>
+    <b>Messaggi Ricevuti</b> &nbsp; <button>Aggiorna</button>
     <br>
     <br>
     <table>
+      <!--
       <tr>
         <th>Column 0</th>
         <th>Column 1</th>
         <th>Column 2</th>
         <th>Column 3</th>
       </tr>
-      <tr *ngFor="let r of righe">
-        <td>{{r[0]}}</td>
-        <td>{{r[1]}}</td>
-        <td>{{r[2]}}</td>
-        <td>{{r[3]}}</td>
+      -->
+      <tr *ngFor="let m of messaggi">
+        <td *ngIf="m.aliasMittente != this.nickName">{{m.aliasMittente}}</td>
+        <td *ngIf="m.aliasMittente != this.nickName">{{m.testo}}</td>
       </tr>
     </table>
   </div>
