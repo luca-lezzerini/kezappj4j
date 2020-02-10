@@ -9,7 +9,7 @@ public class RegistrazioneDto06 {
     private List<Messaggio06> messaggi;
     private String sessione;
 
-    public RegistrazioneDto06(ArrayList<Chat06> contatti, ArrayList<Messaggio06> messaggi, String sessione) {
+    public RegistrazioneDto06(List<Chat06> contatti, List<Messaggio06> messaggi, String sessione) {
         this.contatti = contatti;
         this.messaggi = messaggi;
         this.sessione = sessione;
@@ -27,7 +27,7 @@ public class RegistrazioneDto06 {
         return contatti;
     }
 
-    public void setContatti(ArrayList<Chat06> contatti) {
+    public void setContatti(List<Chat06> contatti) {
         this.contatti = contatti;
     }
 
@@ -38,7 +38,7 @@ public class RegistrazioneDto06 {
         return messaggi;
     }
 
-    public void setMessaggi(ArrayList<Messaggio06> messaggi) {
+    public void setMessaggi(List<Messaggio06> messaggi) {
         this.messaggi = messaggi;
     }
 
