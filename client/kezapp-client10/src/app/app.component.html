@@ -8,7 +8,7 @@
   <div text align="center">
     <h2>Inserisci un Nickname</h2>
     <br>
-    <input type="text" [(ngModel)]="nickname">
+    <input type="text" [(ngModel)]="nickname"><br><br>
     <button type="button" (click)="registrazione()"><b>Registrazione</b></button>
   </div>
 
@@ -17,37 +17,44 @@
   <br>
 
   <div text align="center">
-    <input type="text" [(ngModel)]="Messaggio">
+    <input type="text" [(ngModel)]="messaggio"><br><br>
     <button type="button" (click)="inviaATutti()"><b>Invia un messaggio a tutti</b></button>
     <h2><b>I tuoi Contatti</b></h2>
 
     <table>
+    
     <tr>
       <th>Nickname</th>
     </tr>
+    
     <tr *ngFor="let c of contatti">
       <td>{{c.nickname}}</td>
     </tr>
+    
     </table>
 
-  <hr>
-  <h2><b>Messaggi Ricevuti</b></h2> 
-  <input type="button" value="Aggiorna">
-  <br><br>
+    <hr>
+    
+    <h2><b>Messaggi Ricevuti</b></h2> 
+    <button type="button" (click)="aggiorna()"> <b>Aggiorna</b> </button>
+    
+    <br>
+    <br>
 
-  <table>
-    <tr>
-        <th>Column 0 </th>
-        <th>Column 1 </th>
-        <th>Column 2 </th>
-        <th>Column 3 </th>
-    </tr>
-    <tr *ngFor="let m of messaggi">
-      <td>{{m.aliasMittente}}</td>
-      <td>{{m.testo}}</td>
-    </tr>
-  </table>
+    <table>
+
+      <tr>
+        <th>Nickname e </th>
+        <th>Testo del Messaggio </th>
+      </tr>
+
+      <tr *ngFor="let m of messaggi">
+      <td>{{m.aliasMittente}}:</td>
+        <td>{{m.testo}}</td>
+      </tr>
+    
+    </table>
   
-  </div>
-
+    </div>
+  <br>
 </body>
