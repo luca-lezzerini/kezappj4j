@@ -1,12 +1,12 @@
 <form>
-  <input type="text" [(ngModel)]="nickname" />&nbsp;
-  <button type="button" (click)="registrazione(nickname)">Registrazione</button>
+  <input type="text" [(ngModel)]="nickname" name="nickname"/>&nbsp;
+  <button type="button" (click)="registrazione()">Registrazione</button>
 </form>
 <br />
 <br />
-<div *ngIf="sessioneAttiva()">
+<div *ngIf="sAttiva">
   <form>
-    <input type="text" [(ngModel)]="messaggio" />&nbsp;
+    <input type="text" [(ngModel)]="messaggio" name="messaggio"/>&nbsp;
     <button type="button" (click)="inviaATutti()">Invia a tutti</button>
   </form>
 </div>
@@ -14,34 +14,14 @@
 <br />
 <br />
 
-<div *ngIf="sessioneAttiva()">
+<div *ngIf="sAttiva">
   Contatti
   <br />
   <br />
   <table>
-    <tr>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
+    <tr *ngFor="let contatto of contatti">
+      <td>{{ contatto.nickname }}</td>
       <td><button type="button" (click)="invia()">Invia</button></td>
-    </tr>
-    <tr>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
     </tr>
   </table>
 
@@ -51,29 +31,9 @@
   <button type="button" (click)="aggiorna()">Aggiorna</button><br />
   <br />
   <table>
-    <tr>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
-      <td>A</td>
+    <tr *ngFor="let messaggio of messaggi">
+      <td>{{ messaggio.aliasMittente }}</td>
+      <td>{{ messaggio.testo }}</td>
     </tr>
   </table>
 </div>
