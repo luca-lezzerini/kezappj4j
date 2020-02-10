@@ -1,5 +1,5 @@
 export class Chat {
   id : number;
-  nickName: string;
+  nickname: string;
   sessione: string;
 }
