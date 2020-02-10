@@ -12,13 +12,13 @@ package com.example.kezapp.model;
 public class Messaggio08 {
     private Long id;
     private String testo;
-    private String aliasDestinario;
+    private String aliasDestinatario;
     private String aliasMittente;
 
-    public Messaggio08(Long id, String testo, String aliasDestinario, String aliasMittente) {
+    public Messaggio08(Long id, String testo, String aliasDestinatario, String aliasMittente) {
         this.id = id;
         this.testo = testo;
-        this.aliasDestinario = aliasDestinario;
+        this.aliasDestinatario = aliasDestinatario;
         this.aliasMittente = aliasMittente;
     }
 
@@ -41,12 +41,12 @@ public class Messaggio08 {
         this.testo = testo;
     }
 
-    public String getAliasDestinario() {
-        return aliasDestinario;
+    public String getAliasDestintario() {
+        return aliasDestinatario;
     }
 
-    public void setAliasDestinario(String aliasDestinario) {
-        this.aliasDestinario = aliasDestinario;
+    public void setAliasDestinatario(String aliasDestinatario) {
+        this.aliasDestinatario = aliasDestinatario;
     }
 
     public String getAliasMittente() {

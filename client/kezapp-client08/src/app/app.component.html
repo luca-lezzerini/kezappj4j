@@ -5,12 +5,26 @@
 
 <div *ngIf="mostra">
   <input type="text" [(ngModel)]='messaggio'>&nbsp;
-  <button type="button" (click)="inviaATutti()">Invia a tutti!</button>
+  <button type="button" (click)="inviaTutti()">Invia a tutti!</button>
   <br>
   <!-- <button type="button" (click)="riempiTabelle()">RiempiTabelle!</button> -->
   <br>
   <h2>Contatti</h2>
+  <table>
+    <tr *ngFor= "let c of contatti">
+      <td>{{c.nickname}}</td>
+   </tr>
+  </table>
 
+  <h2>Messaggi ricevuti</h2>
+  <table>
+    <tr *ngFor= "let m of messaggi">
+    <td>{{m.aliasMittente}}</td>
+    <td>{{m.testo}}</td>
+  </tr>
+</table>
+
+<!--
   <table st-table="mostraContatti"  st-safe-src="contatti" class="table table-striped">
     <thead>
       <tr>
@@ -81,3 +95,4 @@
 </div>
 
 <p>Ciao!</p>
+-->
