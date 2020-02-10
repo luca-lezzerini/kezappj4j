@@ -7,7 +7,7 @@ package com.example.kezapp.model;
 
 import java.util.List;
 
-/**
+/*
  *
  * @author utente
  */

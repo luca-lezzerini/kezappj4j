@@ -1,2 +1,22 @@
 <input type="text" [(ngModel)]="Nickname">
 <button type="button" (click)="registrazione()">Registrazione</button>
+<br>
+<input type="text" [(ngModel)]="messaggio">
+<button type="button" (click)="registrazione()">Invia a tutti</button>
+<br>
+Contatti
+<table>
+  <tr *ngFor="let c of contatti">
+    <td>{{c.nickname}}</td>
+
+  </tr>
+</table>
+
+
+Messaggi
+<table>
+  <tr *ngFor="let m of messaggi">
+    <td>{{m.aliasMittente}}</td>
+    <td>{{m.testo}}</td>
+  </tr>
+</table>

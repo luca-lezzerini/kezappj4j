@@ -26,11 +26,11 @@ public class Chat16 {
         this.id = id;
     }
 
-    public String getNickName() {
+    public String getNickname() {
         return nickname;
     }
 
-    public void setNickName(String nickName) {
+    public void setNickname(String nickName) {
         this.nickname = nickName;
     }
 
