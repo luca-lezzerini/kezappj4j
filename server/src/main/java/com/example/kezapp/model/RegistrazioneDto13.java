@@ -16,6 +16,8 @@ public class RegistrazioneDto13 {
     }
 
     public RegistrazioneDto13() {
+        messaggi = new ArrayList<>();
+        contatti = new ArrayList<>();
     }
     
     

@@ -1,43 +1,39 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <input type="text" [(ngModel)]="nickName">
-  <button type="button" (click)="nascondiTesto()">Registrazione</button>
-</div>
-
-<div *ngIf="mostraTesto">
-  <input type="text" [(ngModel)]="messaggio">
-  <button type="button" (click)="Inviaatutti()">Invia a tutti</button>
-<h2>Contatti</h2>
+<body>
 <br>
+<h1 text align="center">Hi there! I'm using Kezapp!</h1>
+<hr>
+<div text align="center">
+  <h2>Inserisci un Nickname</h2>
+  <br>
+  <input type="text" [(ngModel)]="nickName">
+  <button type="button" (click)="nascondiTesto()"><b>Registrazione</b></button>
+</div>
+<br>
+<hr>
+<br>
+<div *ngIf="mostraTesto" text align="center">
+  <input type="text" [(ngModel)]="messaggio" class="Messaggio.ts"> &nbsp;
+  <button type="button" (click)="inviaATutti()"><b>Invia un messaggio a tutti</b></button>
+<h2><b>I tuoi Contatti</b></h2>
 <table>
+  <tr>
+    <th>Column 0</th>
+    <th>Column 1</th>
+    <th>Column 2</th>
+    <th>Column 3</th>
+  </tr>
   <tr *ngFor="let r of righe">
-      <th>Column 0</th>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-  </tr>
-  <tr>
-      <td>Row 1</td>
-      <td>text</td>
-      <td>text</td>
-      <td>text</td>
-  </tr>
-  <tr>
-      <td>Row 2</td>
-      <td>text</td>
-      <td>text</td>
-      <td>text</td>
-  </tr>
-  <tr>
-      <td>Row 3</td>
-      <td>text</td>
-      <td>text</td>
-      <td>text</td>
+      <td>{{r[0]}}</td>
+      <td>{{r[1]}}</td>
+      <td>{{r[2]}}</td>
+      <td>{{r[3]}}</td>
   </tr>
 </table>
-<br>
-Messaggi Ricevuti <input type="button" value="Aggiorna">
-<br>
+<hr>
+<h2><b>Messaggi Ricevuti</b></h2> 
+<input type="button" value="Aggiorna">
+<br><br>
 <table>
     <tr>
         <th>Column 0 </th>
@@ -45,24 +41,12 @@ Messaggi Ricevuti <input type="button" value="Aggiorna">
         <th>Column 2 </th>
         <th>Column 3 </th>
     </tr>
-    <tr>
-        <td>Row 1</td>
-        <td>text</td>
-        <td>text</td>
-        <td>text</td>
-    </tr>
-    <tr>
-        <td>Row 2</td>
-        <td>text</td>
-        <td>text</td>
-        <td>text</td>
-    </tr>
-    <tr>
-        <td>Row 3</td>
-        <td>text</td>
-        <td>text</td>
-        <td>text</td>
+    <tr *ngFor="let r of righe">
+      <td>{{r[0]}}</td>
+      <td>{{r[1]}}</td>
+      <td>{{r[2]}}</td>
+      <td>{{r[3]}}</td>
     </tr>
   </table>
 </div>
-
+</body>
