@@ -1,52 +1,53 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <body>
-<br>
-<h1 text align="center">Hi there! I'm using Kezapp!</h1>
-<hr>
-<div text align="center">
-  <h2>Inserisci un Nickname</h2>
+
   <br>
-  <input type="text" [(ngModel)]="nickName">
-  <button type="button" (click)="nascondiTesto()"><b>Registrazione</b></button>
-</div>
-<br>
-<hr>
-<br>
-<div *ngIf="mostraTesto" text align="center">
-  <input type="text" [(ngModel)]="messaggio" class="Messaggio.ts"> &nbsp;
-  <button type="button" (click)="inviaATutti()"><b>Invia un messaggio a tutti</b></button>
-<h2><b>I tuoi Contatti</b></h2>
-<table>
-  <tr>
-    <th>Column 0</th>
-    <th>Column 1</th>
-    <th>Column 2</th>
-    <th>Column 3</th>
-  </tr>
-  <tr *ngFor="let r of righe">
-      <td>{{r[0]}}</td>
-      <td>{{r[1]}}</td>
-      <td>{{r[2]}}</td>
-      <td>{{r[3]}}</td>
-  </tr>
-</table>
-<hr>
-<h2><b>Messaggi Ricevuti</b></h2> 
-<input type="button" value="Aggiorna">
-<br><br>
-<table>
+  <h1 text align="center">Hi there! I'm using Kezapp!</h1>
+  <hr>
+
+  <div text align="center">
+    <h2>Inserisci un Nickname</h2>
+    <br>
+    <input type="text" [(ngModel)]="nickname">
+    <button type="button" (click)="registrazione()"><b>Registrazione</b></button>
+  </div>
+
+  <br>
+  <hr>
+  <br>
+
+  <div text align="center">
+    <input type="text" [(ngModel)]="Messaggio">
+    <button type="button" (click)="inviaATutti()"><b>Invia un messaggio a tutti</b></button>
+    <h2><b>I tuoi Contatti</b></h2>
+
+    <table>
+    <tr>
+      <th>Nickname</th>
+    </tr>
+    <tr *ngFor="let c of contatti">
+      <td>{{c.nickname}}</td>
+    </tr>
+    </table>
+
+  <hr>
+  <h2><b>Messaggi Ricevuti</b></h2> 
+  <input type="button" value="Aggiorna">
+  <br><br>
+
+  <table>
     <tr>
         <th>Column 0 </th>
         <th>Column 1 </th>
         <th>Column 2 </th>
         <th>Column 3 </th>
     </tr>
-    <tr *ngFor="let r of righe">
-      <td>{{r[0]}}</td>
-      <td>{{r[1]}}</td>
-      <td>{{r[2]}}</td>
-      <td>{{r[3]}}</td>
+    <tr *ngFor="let m of messaggi">
+      <td>{{m.aliasMittente}}</td>
+      <td>{{m.testo}}</td>
     </tr>
   </table>
-</div>
+  
+  </div>
+
 </body>
