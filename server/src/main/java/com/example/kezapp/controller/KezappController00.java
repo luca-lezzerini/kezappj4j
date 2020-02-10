@@ -1,11 +1,14 @@
 package com.example.kezapp.controller;
 
 import com.example.kezapp.model.Chat00;
+import com.example.kezapp.model.InviaMessaggioDto00;
 import com.example.kezapp.model.Messaggio00;
 import com.example.kezapp.model.RegistrazioneDto00;
 import com.example.kezapp.model.RichiediRegistrazioneDto;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +47,7 @@ public class KezappController00 {
             double d = Math.random();
             cx.setSessione(Double.toString(d));
             chats.add(cx);
-            
+
             rx.setContatti(chats);
             rx.setSessione(cx.getSessione());
             rx.setMessaggi(msgs);
@@ -59,19 +62,58 @@ public class KezappController00 {
         return rx;
     }
 
-    @RequestMapping(value = "/inviaTutti00")
-    public RegistrazioneDto00 inviaTutti() {
-        System.out.println("Siamo in inviaTutti!");
+    @RequestMapping(value = "/inviaUno00")
+    @ResponseBody
+    public RegistrazioneDto00 inviaUno(@RequestBody InviaMessaggioDto00 dto) {
+        System.out.println("Siamo in inviaUno!");
         RegistrazioneDto00 rx = new RegistrazioneDto00();
         rx.setSessione("123stella!");
         return rx;
     }
 
-    @RequestMapping(value = "/inviaUno00")
-    public RegistrazioneDto00 inviaUno() {
-        System.out.println("Siamo in inviaUno!");
+    @RequestMapping(value = "/inviaTutti00")
+    public RegistrazioneDto00 inviaTutti(@RequestBody InviaMessaggioDto00 dto) {
+        System.out.println("Siamo in inviaTutti!");
+        // cerco se esiste la sessione ...
+        boolean trovato = false;
+        Chat00 cx = null;
+        for (Chat00 chat : chats) {
+            if (chat.getSessione().equalsIgnoreCase(dto.getSessione())) {
+                trovato = true;
+                cx = chat;
+                break;
+            }
+        }
+
         RegistrazioneDto00 rx = new RegistrazioneDto00();
-        rx.setSessione("123stella!");
+
+        // ... se esiste aggiungo un messaggio e ritorno pieno
+        if (trovato) {
+            // creo nuovo messaggio
+            Messaggio00 msg = new Messaggio00();
+            msg.setTesto(dto.getMessaggio());
+            msg.setAliasMittente(cx.getNickname());
+            msg.setAliasDestinatario(null);
+
+            // aggiungo un messaggio alla lista dei messaggi
+            msgs.add(msg);
+            
+            // ritorno i contatti
+            List<Chat00> listaContatti = chats.parallelStream()
+                    .filter(c -> !(c.getSessione().equals(dto.getSessione())))
+                    .collect(Collectors.toList());
+            // ritorno i messaggi
+            Chat00 cy = cx;
+            List<Messaggio00> listaMessaggi = msgs.parallelStream()
+                    .filter( m -> !(m.getAliasMittente().equals(cy.getNickname())))
+                    .collect(Collectors.toList());
+            rx.setContatti(listaContatti);
+            rx.setMessaggi(listaMessaggi);
+        } else {
+            // ... se non esiste non aggiungo nulla e ritorno vuoto
+            rx.setContatti(Collections.emptyList());
+            rx.setMessaggi(Collections.emptyList());
+        }
         return rx;
     }
 
