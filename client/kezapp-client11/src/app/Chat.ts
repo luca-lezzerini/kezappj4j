@@ -1,7 +1,7 @@
 
 
 export class Chat {
-id : long;
+id : number;
 nickname : string;
 sessione : string;
 

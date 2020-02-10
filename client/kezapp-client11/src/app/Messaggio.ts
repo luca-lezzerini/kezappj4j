@@ -1,7 +1,8 @@
 
 
 export class Messaggio {
-  id:long;
-  testo:string;
-  sessione:string;
+  id : number;
+  testo : string;
+  aliasDestinatario : string;
+  aliasMittente : string;
 }
