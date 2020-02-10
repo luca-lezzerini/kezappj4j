@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author utente
+ * @author Alessandro G.
  */
 public class RegistrazioneDto17 {
     private List<Chat17> contatti;
