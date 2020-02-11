@@ -4,11 +4,13 @@ import com.example.kezapp.model.Chat00;
 import com.example.kezapp.model.InviaMessaggioDto00;
 import com.example.kezapp.model.Messaggio00;
 import com.example.kezapp.model.RegistrazioneDto00;
+import com.example.kezapp.model.RichiediMessaggioDto00;
 import com.example.kezapp.model.RichiediRegistrazioneDto;
-import java.util.ArrayList;
+import com.example.kezapp.service.KezappService00;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,47 +21,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class KezappController00 {
 
-    List<Chat00> chats = new ArrayList<>();
-    List<Messaggio00> msgs = new ArrayList<>();
+    @Autowired
+    KezappService00 ss;
 
     @RequestMapping(value = "/registrazione00")
     @ResponseBody
     public RegistrazioneDto00 registrazione(@RequestBody RichiediRegistrazioneDto dto) {
         System.out.println("Siamo in registrazione!");
 
-        // verifico se già esiste il nick-name
-        boolean trovato = false;
-        for (Chat00 chat : chats) {
-            if (chat.getNickname().equalsIgnoreCase(dto.getNickname())) {
-                trovato = true;
-                break;
-            }
-        }
-
-        // preparo la variabile per la risposta
-        RegistrazioneDto00 rx = new RegistrazioneDto00();
-
-        // se non esiste lo creo e lo aggiungo alla lista dei contatti
-        if (!trovato) {
-            Chat00 cx = new Chat00();
-            cx.setNickname(dto.getNickname());
-            // genero la sessione (non verifico se già esiste FIXME)
-            double d = Math.random();
-            cx.setSessione(Double.toString(d));
-            chats.add(cx);
-
-            rx.setContatti(chats);
-            rx.setSessione(cx.getSessione());
-            rx.setMessaggi(msgs);
-        } else {
-            // se esiste non aggiungo nulla e ritorno campi vuoti
-            // perché non è ammesso il riuso del nickname
-            rx.setContatti(new ArrayList<>());
-            rx.setSessione(null);
-            rx.setMessaggi(new ArrayList<>());
-        }
-
-        return rx;
+        return ss.registrazione(dto);
     }
 
     @RequestMapping(value = "/inviaUno00")
@@ -74,55 +44,15 @@ public class KezappController00 {
     @RequestMapping(value = "/inviaTutti00")
     public RegistrazioneDto00 inviaTutti(@RequestBody InviaMessaggioDto00 dto) {
         System.out.println("Siamo in inviaTutti!");
-        // cerco se esiste la sessione ...
-        boolean trovato = false;
-        Chat00 cx = null;
-        for (Chat00 chat : chats) {
-            if (chat.getSessione().equalsIgnoreCase(dto.getSessione())) {
-                trovato = true;
-                cx = chat;
-                break;
-            }
-        }
 
-        RegistrazioneDto00 rx = new RegistrazioneDto00();
-
-        // ... se esiste aggiungo un messaggio e ritorno pieno
-        if (trovato) {
-            // creo nuovo messaggio
-            Messaggio00 msg = new Messaggio00();
-            msg.setTesto(dto.getMessaggio());
-            msg.setAliasMittente(cx.getNickname());
-            msg.setAliasDestinatario(null);
-
-            // aggiungo un messaggio alla lista dei messaggi
-            msgs.add(msg);
-            
-            // ritorno i contatti
-            List<Chat00> listaContatti = chats.parallelStream()
-                    .filter(c -> !(c.getSessione().equals(dto.getSessione())))
-                    .collect(Collectors.toList());
-            // ritorno i messaggi
-            Chat00 cy = cx;
-            List<Messaggio00> listaMessaggi = msgs.parallelStream()
-                    .filter( m -> !(m.getAliasMittente().equals(cy.getNickname())))
-                    .collect(Collectors.toList());
-            rx.setContatti(listaContatti);
-            rx.setMessaggi(listaMessaggi);
-        } else {
-            // ... se non esiste non aggiungo nulla e ritorno vuoto
-            rx.setContatti(Collections.emptyList());
-            rx.setMessaggi(Collections.emptyList());
-        }
-        return rx;
+        return ss.inviaTutti(dto);
     }
 
     @RequestMapping(value = "/aggiorna00")
-    public RegistrazioneDto00 aggiorna() {
+    public RegistrazioneDto00 aggiorna(@RequestBody RichiediMessaggioDto00 dto) {
         System.out.println("Siamo in aggiorna!");
-        RegistrazioneDto00 rx = new RegistrazioneDto00();
-        rx.setSessione("123stella!");
-        return rx;
+        
+        return ss.aggiorna(dto);
     }
 
 }

@@ -6,6 +6,7 @@ import { RegistrazioneDto } from './registrazione-dto';
 import { Messaggio } from './messaggio';
 import { Chat } from './chat';
 import { InviaMessaggioDto } from './invia-messaggio-dto';
+import { RichiediMessaggiDto } from './richiedi-messaggi-dto';
 
 @Component({
   selector: 'app-root',
@@ -55,6 +56,25 @@ export class AppComponent {
       this.messaggi = data.messaggi;
       this.contatti = data.contatti;
     });
+  }
+
+  /**
+   * @description questo metodo recupera da server i dati aggiornati
+   */
+  aggiorna(){
+    // prepara i dati da inviare al server
+    let p: RichiediMessaggiDto = new RichiediMessaggiDto();
+    p.sessione = this.sessione;
+
+    // prepara la richiesta HTTP
+    let obs: Observable<RegistrazioneDto> = this.http
+    .post<RegistrazioneDto>('http://localhost:8080/aggiorna00', p);
+
+    // invio la richiesta
+    obs.subscribe(rs => {
+      this.messaggi = rs.messaggi;
+      this.contatti = rs.contatti;
+    })
   }
 }
 
