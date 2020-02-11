@@ -6,12 +6,15 @@
 <br>
 Contatti
 <table>
-  <tr *ngFor='let c of contatti'>
+  <tr *ngFor="let c of contatti">
     <td>{{c.nickname}}</td>
+    <td>
+      <button (click)="inviaAUno(c)">Invia a {{c.nickname}}</button>
+    </td>
   </tr>
 </table>
-<br>
 Messaggi ricevuti
+<button type="button" (click)="aggiorna()">Aggiorna</button>
 <table>
   <tr *ngFor="let m of messaggi">
       <td>{{m.aliasMittente}}</td>
