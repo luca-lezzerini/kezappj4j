@@ -24,12 +24,12 @@
       <tr *ngFor="let c of contatti">
         <td *ngIf="c.nickname != this.nickName">{{c.nickname}}</td>
         <td *ngIf="c.nickname != this.nickName">
-          <button class="table-button">Invia</button>
+          <button class="table-button" (click)="inviaUno(c)">Invia</button>
         </td>
       </tr>
     </table>
     <br>
-    <b>Messaggi Ricevuti</b> &nbsp; <button>Aggiorna</button>
+    <b>Messaggi Ricevuti</b> &nbsp; <button (click)="aggiorna()">Aggiorna</button>
     <br>
     <br>
     <table>
