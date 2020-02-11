@@ -6,6 +6,7 @@
     <input type="text" [(ngModel)]="messaggio" name= "messaggio">&nbsp;
     <button type="button" (click)="inviaATutti()">invia a tutti</button>
   </div>
+
 </form>
 <br>
 <div *ngIf="sAttiva">
@@ -13,9 +14,11 @@
   <table>
     <tr *ngFor="let c of contatti">
       <td>{{c.nickname}}</td>
+      <td><button (click)="invia(c)">invia a {{c.nickname}}</button></td>
     </tr>
   </table>
   messaggi
+    <button type="button" (click)="aggiorna()">aggiorna</button>
   <table>
     <tr *ngFor="let m of messaggi">
       <td>{{m.aliasMittente}}</td>

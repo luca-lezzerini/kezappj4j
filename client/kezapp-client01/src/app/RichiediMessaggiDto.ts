@@ -1,3 +1,3 @@
-export class RichiediMessaggioDto {
+export class RichiediMessaggiDto {
   sessione: string;
 }
