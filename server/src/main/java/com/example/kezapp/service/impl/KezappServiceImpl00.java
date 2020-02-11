@@ -68,7 +68,7 @@ public class KezappServiceImpl00 implements KezappService00 {
 //                .filter(x -> x.getSessione().equalsIgnoreCase(dto.getSessione()))
 //                .count() > 0;
         RegistrazioneDto00 rx = new RegistrazioneDto00();
-
+        System.out.println(cx);
         // ... se esiste aggiungo un messaggio e ritorno pieno
         if (cx != null) {
             // creo nuovo messaggio
@@ -79,6 +79,7 @@ public class KezappServiceImpl00 implements KezappService00 {
 
             // aggiungo un messaggio alla lista dei messaggi
             msgs.add(msg);
+            System.out.println(msgs.size());
 
             // ritorno i contatti
             List<Chat00> listaContatti = removeMeFromChats(cx.getNickname());
@@ -108,6 +109,7 @@ public class KezappServiceImpl00 implements KezappService00 {
             List<Chat00> lx = removeMeFromChats(cx.getNickname());
             risp.setContatti(lx);
             risp.setMessaggi(removeMeFromMessages(cx.getNickname()));
+            risp.getMessaggi().forEach(s -> System.out.println(s));
         }
         return risp;
     }

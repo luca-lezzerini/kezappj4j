@@ -47,6 +47,12 @@ public class Messaggio00 {
     public void setAliasMittente(String aliasMittente) {
         this.aliasMittente = aliasMittente;
     }
+
+    @Override
+    public String toString() {
+        return "Messaggio00{" + "id=" + id + ", testo=" + testo + ", aliasDestinatario=" + aliasDestinatario + ", aliasMittente=" + aliasMittente + '}';
+    }
+    
     
     
 }
