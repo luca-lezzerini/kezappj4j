@@ -52,12 +52,43 @@ export class AppComponent {
     // invio i dati al server
     let ox : Observable<RegistrazioneDto> =
     this.http
-    .post<RegistrazioneDto>('http://localhost:8080/inviaATutti07',im);
+    .post<RegistrazioneDto>('http://localhost:8080/inviaATutti07', im);
     // callback
     ox.subscribe(data => {
       this.messaggi = data.messaggi;
       this.contatti = data.contatti;
     });
+  }
+  aggiorna(){
+    // preparo i dati
+    let ag: RichiediMessaggioDto = new RichiediMessaggioDto();
+    ag.sessione = this.sessione;
+    //invio i dati
+    let kx: Observable<RegistrazioneDto> =
+    this.http
+    .post<RegistrazioneDto>('http://localhost:80807aggiorna07', ag);
+    //callback
+    kx.subscribe(agg => {
+      this.sessione = agg.sessione;
+      this.contatti = agg.contatti;
+      this.messaggi = agg.messaggi;
+    });
+  }
+  inviaUno(c: Chat) {
+     // preparo i dati
+     let iu: InviaMessaggioDto = new InviaMessaggioDto();
+     iu.sessione = this.sessione;
+     iu.messaggio = this.messaggio;
+     iu.destinatario = c.nickname;
+     // invio i dati
+     let kx: Observable<RegistrazioneDto> =
+     this.http
+     .post<RegistrazioneDto>('http://localhost:80807inviaUno07', iu);
+     // callback
+     kx.subscribe(agg => {
+       this.contatti = agg.contatti;
+       this.messaggi = agg.messaggi;
+     });
   }
 }
 
