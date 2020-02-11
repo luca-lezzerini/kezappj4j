@@ -1,84 +1,25 @@
-
-<form action="">
-  <input type="text" [(ngModel)]="nickname">&nbsp; 
+<form>
+  <input type="text" [(ngModel)]="nickname" name="nickname">&nbsp;
   <button type="button" (click)="registrazione()">registarzione</button>
   <br><br>
-  <div *ngIf="sessioneAttiva()">
-  <input type="text" [(ngModel)]="messaggio">&nbsp; 
-  <button type="button" (click)="inviaATutti()">invia a tutti</button>
+  <div *ngIf="sAttiva">
+    <input type="text" [(ngModel)]="messaggio" name= "messaggio">&nbsp;
+    <button type="button" (click)="inviaATutti()">invia a tutti</button>
   </div>
 </form>
 <br>
-<div *ngIf="sessioneAttiva()">
-Contatti
-<table>
-  <tr *ngFor="let r of righe">
-    <td>A</td>
-    <td>A</td>
-    <td>A</td>
-    <td>A</td>
-
-  </tr>
-  <tr>
-    <td>A</td>
-    <td>A</td>
-    <td>A</td>
-    <td><button type="button"(click)="invia()">invia</button></td>
-  </tr>
-  <tr>
-    <td>A</td>
-    <td>A</td>
-    <td>A</td>
-    <td>A</td>
-  </tr>
-  <tr>
-    <td>A</td>
-    <td>A</td>
-    <td>A</td>
-    <td>A</td>
-  </tr>
-  <tr>
-    <td>A</td>
-    <td>A</td>
-    <td>A</td>
-    <td>A</td>
-  </tr>
-</table>
-</div>
-<br>
-<div *ngIf="sessioneAttiva()">
-messaggi ricevuti
-<button button="button" (click)="aggiorna()">aggiorna</button>
-<table>
-  <tr>
-    <td> B</td>
-    <td> B</td>
-    <td> B</td>
-    <td> B</td>
-  </tr>
-  <tr>
-    <td>B</td>
-    <td>B</td>
-    <td>B</td>
-    <td>B</td>
-  </tr>
-  <tr>
-    <td>B</td>
-    <td>B</td>
-    <td>B</td>
-    <td>B</td>
-  </tr>
-  <tr>
-    <td>B</td>
-    <td>B</td>
-    <td>B</td>
-    <td>B</td>
-  </tr>
-  <tr>
-    <td>B</td>
-    <td>B</td>
-    <td>B</td>
-    <td>B</td>
-  </tr>
-</table>
+<div *ngIf="sAttiva">
+  Contatti
+  <table>
+    <tr *ngFor="let c of contatti">
+      <td>{{c.nickname}}</td>
+    </tr>
+  </table>
+  messaggi
+  <table>
+    <tr *ngFor="let m of messaggi">
+      <td>{{m.aliasMittente}}</td>
+      <td>{{m.testo}}</td>
+    </tr>
+  </table>
 </div>

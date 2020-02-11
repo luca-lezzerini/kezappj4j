@@ -1,4 +1,4 @@
-export class Messaggio{
+export class Messaggio {
   id: number;
   testo: string;
   aliasDestinatario: string;

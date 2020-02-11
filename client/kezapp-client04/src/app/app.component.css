@@ -7,10 +7,11 @@ div.center>table {
 }
 
 input {
-  background-color: lightgreen;
+  background-color: blue;
+  color: white;
 }
 
 button {
-  background-color: lightseagreen;
+  background-color: white;
   font-weight: bold;
 }

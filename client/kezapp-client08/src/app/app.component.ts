@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { RichiediRegistrazioneDto } from './richiedi-registrazione-dto';
+import { Chat } from './Chat';
+import { Messaggio } from './Messaggio';
 import { HttpClient } from '@angular/common/http';
+import { RichiediRegistrazioneDto } from './richiedi-registrazione-dto';
+import { Observable } from 'rxjs';
 import { RegistrazioneDto } from './registrazione-dto';
-import { Observable } from 'rxjs/internal/Observable';
-import { Messaggio } from './messaggio';
-import { Chat } from './chat';
 import { InviaMessaggioDto } from './invia-messaggio-dto';
-
-
 
 
 @Component({
@@ -20,55 +18,52 @@ export class AppComponent {
 
   nickName: string;
   messaggio: string;
+  righe: string[];
   sessione: string;
-  mostra = false;
-  log = [];
-
-
-
-  messaggi: Messaggio[] =[];
+  messaggi: Messaggio[] = [];
   contatti: Chat[] = [];
+  mostra = false;
+  
 
+constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient){
-
-  }
-
-  registrazione() {  // chiama controller in netbeans
+  registrazione() {
     this.mostra = true;
+
     // creo il dto con i dati da inviare
-    let dx : RichiediRegistrazioneDto = new RichiediRegistrazioneDto();
-    dx.nickname = this.nickName;   // uzme ga od [(ngmodel)]
+    let dx: RichiediRegistrazioneDto = new RichiediRegistrazioneDto();
+    dx.nickname = this.nickName;
 
-    // preparo la richiesta HTTP
+   // preparo la richiesta HTTP
+   
     let oss: Observable<RegistrazioneDto> =
-    this.http             // il metodo post vuole 2 param : 1.url di servizio e 2.dx
-    .post<RegistrazioneDto>('http://localhost:8080/registrazione08', dx);
+      this.http
+      .post<RegistrazioneDto>('http://localhost:8080/registrazione08', dx)
 
-    // creo la callback
-    oss.subscribe( risposta => {
-      this.messaggi = risposta.messaggi;  // messagi iz ngfor iz atble u html file
-      this.contatti = risposta.contatti;   // sara eseguito  dopo!!! quando arriva la risposta
-      this.sessione = risposta.sessione;
+   // creo la callback
+   
+    oss.subscribe(risposta => {
+     console.log(risposta);
+     this.messaggi = risposta.messaggi;
+     this.contatti = risposta.contatti;
+     this.sessione = risposta.sessione;
     });
-
   }
-//inviaTutti() {
- inviaTutti() {
-      // preparp i dati da inviare alserver
-      let im: InviaMessaggioDto = new InviaMessaggioDto; // html aggiorna la variabile del ts
-      im.messaggio = this.messaggio;
-      im.destinatario = null;
-      im.sessione = this.sessione;
 
-      //invio i dati al server, param je ono sto vraca controller
-      let ox: Observable<RegistrazioneDto> =
-          this.http             // il metodo post vuole 2 param : 1.url di servizio e 2.dx
-          .post<RegistrazioneDto>('http://localhost:8080/inviaTutti08', im);
-      ox.subscribe ( data =>{
-            this.messaggi = data.messaggi;
-            this.contatti = data.contatti;
-          });
+  inviaATutti() {
+    // preparo dati da inviare al server
+    let im: InviaMessaggioDto = new InviaMessaggioDto();
+    im.messaggio = this.messaggio;
+    im.destinatario = null;
+    im.sessione = this.sessione;
+
+    // invio i dati al server
+    let ox: Observable<RegistrazioneDto> = 
+      this.http.post<RegistrazioneDto>('http://localhost:8080/inviaTutti08', im);
+    ox.subscribe(data => {
+      this.messaggi = data.messaggi;
+      this.contatti = data.contatti;
+    });
   }
 
   aggiorna() {

@@ -37,6 +37,7 @@ public class KezappController17 {
     public RegistrazioneDto17 registrazione(@RequestBody RichiediRegistrazioneDto17 dto){
         System.out.println("Siamo in registrazione!");
         
+        // verifico se esiste il nickname
         boolean trovato = false;
         for(Chat17 chat: chats) {
             if (chat.getNickname().equalsIgnoreCase(dto.getNickname())) {
@@ -61,21 +62,19 @@ public class KezappController17 {
             rx.setMessaggi(msgs);
         } else {
             // se esiste non aggingo nulla e ritorno cambi vuoti
-            // perchè non 
+            // perchè non è ammesso il riuso del nickname
             rx.setContatti(new ArrayList<>());
             rx.setSessione(null);
             rx.setMessaggi(new ArrayList<>());
         }
         
-        rx.setSessione("123stella");
+        // rx.setSessione("123stella");
         return rx;
     }
     
     @RequestMapping(value = "/inviatutti17")
     public RegistrazioneDto17 inviaTutti(@RequestBody InviaMessaggioDto17 dto){
         System.out.println("Siamo in inviaATutti!");
-        RegistrazioneDto17 rx = new RegistrazioneDto17();
-        
         // cerco se esiste la sessione
         boolean trovato = false;
         Chat17 cx = null;
@@ -87,7 +86,9 @@ public class KezappController17 {
             }
         }
         
-        // ... se esiste aggiungo un messaggio
+        RegistrazioneDto17 rx = new RegistrazioneDto17();
+        
+        // ... se esiste aggiungo un messaggio e ritorno pieno
         if (trovato) {
             // creo nuovo messaggio
             Messaggio17 msg = new Messaggio17();
@@ -100,24 +101,22 @@ public class KezappController17 {
             
             // ritorno i contatti
             List<Chat17> listaContatti = chats.parallelStream()
-                    .filter(c -> !c.getSessione().equals(dto.getSessione()))
+                    .filter(c -> !(c.getSessione().equals(dto.getSessione())))
                     .collect(Collectors.toList());
             // ritorno i messaggi
             Chat17 cy = cx;
             List<Messaggio17> listaMessaggi = msgs.parallelStream()
-                    .filter(m -> !m.getAliasMittente().equals(cy.getNickname()))
+                    .filter( m -> !(m.getAliasMittente().equals(cy.getNickname())))
                     .collect(Collectors.toList());
-            
             rx.setContatti(listaContatti);
             rx.setMessaggi(listaMessaggi);
-            
         } else {
             // ... se non esiste non aggiungo nulla e ritorno vuoto
             rx.setContatti(Collections.emptyList());
             rx.setMessaggi(Collections.emptyList());
         }
 
-        rx.setSessione("456");
+        // rx.setSessione("456");
         return rx;
     }
     

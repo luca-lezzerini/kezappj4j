@@ -15,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
 
   nickName: string;
-  messaggio: string;
+  messaggio = '';
   sessione: string;
   messaggi: Messaggio[] = [];
   contatti: Chat[] = [];
@@ -40,11 +40,18 @@ export class AppComponent {
   }
 
   inviaATutti() {
-    const send: InviaMessaggioDto = new InviaMessaggioDto();
-    send.destinatario = null;
-    send.messaggio = this.messaggio;
-    send.sessione = this.sessione;
-    const obs: Observable<InviaMessaggioDto> = this.http.post<InviaMessaggioDto>('http://localhost:8080/inviaTutti04', send);
+    if (this.messaggio !== '') {
+      const send: InviaMessaggioDto = new InviaMessaggioDto();
+      send.destinatario = null;
+      send.messaggio = this.messaggio;
+      send.sessione = this.sessione;
+      const obs: Observable<RegistrazioneDto> = this.http.post<RegistrazioneDto>('http://localhost:8080/inviaTutti04', send);
+      obs.subscribe(risposta => {
+        this.messaggi = risposta.messaggi;
+        this.contatti = risposta.contatti;
+      });
+      this.messaggio = '';
+    }
   }
 
   invia(i: number) {
