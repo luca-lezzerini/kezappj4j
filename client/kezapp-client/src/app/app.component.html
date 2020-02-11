@@ -8,6 +8,9 @@ Contatti
 <table>
   <tr *ngFor="let c of contatti">
     <td>{{c.nickname}}</td>
+    <td>
+      <button (click)="inviaAUno(c)">Invia a {{c.nickname}}</button>
+    </td>
   </tr>
 </table>
 Messaggi ricevuti

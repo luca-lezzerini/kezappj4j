@@ -1,6 +1,6 @@
 export class Chat{
 
-  id:number;
+  id: number;
   nickname: string;
   sessione: string;
 
