@@ -1,4 +1,39 @@
-body{
-background-color: lightskyblue;
-margin-top: 2cm;
+body {
+  background-color: lightskyblue;
+}
+
+td.nick {
+  color: black;
+  font-weight: bold;
+  width: 30%;
+}
+
+td.contenuto {
+  color: white;
+  text-align: left;
+}
+
+td.xxs {
+  width: 5px;
+}
+
+div.center {
+  text-align: center;
+  margin-top: 2cm;
+}
+
+div.center>table {
+  margin: auto;
+  width: 40%;
+}
+
+input {
+  background-color: lightblue;
+  color: black;
+}
+
+button {
+  background-color: dodgerblue;
+  font-weight: bold;
+  color: white;
 }

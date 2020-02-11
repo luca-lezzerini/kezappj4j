@@ -2,7 +2,7 @@ package com.example.kezapp.model;
 
 import java.util.Objects;
 
-public class RichiediMessaggioDto04 {
+public class RichiediMessaggiDto04 {
 
     private String sessione;
 
@@ -24,17 +24,17 @@ public class RichiediMessaggioDto04 {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final RichiediMessaggioDto04 other = (RichiediMessaggioDto04) obj;
+        final RichiediMessaggiDto04 other = (RichiediMessaggiDto04) obj;
         if (!Objects.equals(this.sessione, other.sessione)) {
             return false;
         }
         return true;
     }
 
-    public RichiediMessaggioDto04() {
+    public RichiediMessaggiDto04() {
     }
 
-    public RichiediMessaggioDto04(String sessione) {
+    public RichiediMessaggiDto04(String sessione) {
         this.sessione = sessione;
     }
 

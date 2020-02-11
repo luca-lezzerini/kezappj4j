@@ -1,24 +1,28 @@
-<div class="center" *ngIf="sessione==null;">
-  <input type="text" [(ngModel)]="nickName">
+<div class="center" *ngIf="sessione=='' || sessione==null">
+  <input type="text" placeholder="Inserisci il nickname" [(ngModel)]="nickName">
   <button (click)="registrazione()">Registrazione</button>
 </div>
-<div class="center" *ngIf="sessione!=null;"><input type=" text" [(ngModel)]="messaggio">
-  <button (click)="inviaATutti()">Invia a tutti</button>
-  <br>
-  Contatti
-  <table>
-    <tr *ngFor="let c of contatti, index as i">
-      <td>{{ c.nickname }}</td>
-      <td><button (click)="invia(i)">Invia</button></td>
-    </tr>
-  </table>
-  <br>
-  Messaggi ricevuti
-  <button (click)="aggiorna()">Aggiorna</button>
-  <table>
-    <tr *ngFor="let m of messaggi">
-      <td>{{ m.aliasMittente }}</td>
-      <td>{{ m.testo }}</td>
-    </tr>
-  </table>
+<div *ngIf="sessione!='' && sessione!=null;">
+  <button (click)="disconnetti()">Disconnetti</button>
+  <div class="center"><input type=" text" placeholder="Scrivi un messaggio" [(ngModel)]="messaggio">
+    <button (click)="inviaATutti()">Invia a tutti</button>
+    <br>
+    Contatti
+    <table>
+      <tr *ngFor="let c of contatti, index as i">
+        <td class="nick">{{ c.nickname }}</td>
+        <td><button class="contenuto" (click)="inviaUno(i)">Invia</button></td>
+      </tr>
+    </table>
+    <br>
+    Messaggi ricevuti
+    <button (click)="aggiorna()">Aggiorna</button>
+    <table>
+      <tr *ngFor="let m of messaggi">
+        <td class="nick">{{ m.aliasMittente }}</td>
+        <td class="xxs"> ► </td>
+        <td class="contenuto">{{ m.testo }}</td>
+      </tr>
+    </table>
+  </div>
 </div>
