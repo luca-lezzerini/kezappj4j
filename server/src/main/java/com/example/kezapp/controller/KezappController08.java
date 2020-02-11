@@ -87,7 +87,7 @@ public class KezappController08 {
         // cerco se essiste l asessione...
         boolean trovato = false;
         Chat08 cx = null;
-        
+        // tradizionalan nacin, naci ce samo jednu, tj prvu
         for(Chat08 chat: chats){
             if (chat.getSessione().equalsIgnoreCase(dto.getSessione()) ){
                 trovato = true;
@@ -95,6 +95,11 @@ public class KezappController08 {
                 break;
             }
         }
+        // ricerca con operatori aggregati
+        //trovato = chats.stream()
+        //        .filter(x->x.getSessione().equalsIgnoreCase(dto.getSessione()))
+        //        .count() >0;
+        
          RegistrazioneDto08 rx =new RegistrazioneDto08();
         //..se essiste aggiungo in messaggio e ritorno pieno
         if(trovato){
@@ -106,7 +111,7 @@ public class KezappController08 {
                 msgs.add(msg);
                 //ritorno i contatti
                 List<Chat08> listaContatti = chats.parallelStream()
-                        .filter( c -> !(c.getSessione().equals(dto.getSessione()))) // flitrira mene, tj salji svima osim meni
+                        .filter( c -> !(c.getNickname().equals(dto.getNickname()))) // flitrira mene, tj salji svima osim meni
                         .collect(Collectors.toList()); // transforma stream to list
                 //ritorno i msgi
                 //String nn = cx.getNickname();
@@ -127,6 +132,8 @@ public class KezappController08 {
         //rx.setSessione("123Uno!");
         return rx;
      }
+     
+    @ResponseBody
     @RequestMapping(value = "/aggiorna08")
      public RegistrazioneDto08 aggiorna08(){
         System.out.println("Siamo in aggiorna!");
