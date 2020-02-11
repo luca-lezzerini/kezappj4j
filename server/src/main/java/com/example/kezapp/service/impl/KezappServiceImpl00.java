@@ -60,39 +60,8 @@ public class KezappServiceImpl00 implements KezappService00 {
 
     @Override
     public RegistrazioneDto00 inviaTutti(InviaMessaggioDto00 dto) {
-        // cerco se esiste la sessione ...
-        Chat00 cx = findChat(dto.getSessione());
-
-        // ricerca della sessione con operatori aggregati
-//        trovato = chats.stream()
-//                .filter(x -> x.getSessione().equalsIgnoreCase(dto.getSessione()))
-//                .count() > 0;
-        RegistrazioneDto00 rx = new RegistrazioneDto00();
-        System.out.println(cx);
-        // ... se esiste aggiungo un messaggio e ritorno pieno
-        if (cx != null) {
-            // creo nuovo messaggio
-            Messaggio00 msg = new Messaggio00();
-            msg.setTesto(dto.getMessaggio());
-            msg.setAliasMittente(cx.getNickname());
-            msg.setAliasDestinatario(null);
-
-            // aggiungo un messaggio alla lista dei messaggi
-            msgs.add(msg);
-            System.out.println(msgs.size());
-
-            // ritorno i contatti
-            List<Chat00> listaContatti = removeMeFromChats(cx.getNickname());
-            rx.setContatti(listaContatti);
-
-            // ritorno i messaggi
-            rx.setMessaggi(removeMeFromMessages(cx.getNickname()));
-        } else {
-            // ... se non esiste non aggiungo nulla e ritorno vuoto
-            rx.setContatti(Collections.emptyList());
-            rx.setMessaggi(Collections.emptyList());
-        }
-        return rx;
+        dto.setDestinatario(null);
+        return inviaUno(dto);
     }
 
     @Override
@@ -114,6 +83,43 @@ public class KezappServiceImpl00 implements KezappService00 {
         return risp;
     }
 
+    @Override
+    public RegistrazioneDto00 inviaUno(InviaMessaggioDto00 dto) {
+        // cerco se esiste la sessione ...
+        Chat00 cx = findChat(dto.getSessione());
+
+        // ricerca della sessione con operatori aggregati
+//        trovato = chats.stream()
+//                .filter(x -> x.getSessione().equalsIgnoreCase(dto.getSessione()))
+//                .count() > 0;
+        RegistrazioneDto00 rx = new RegistrazioneDto00();
+        System.out.println(cx);
+        // ... se esiste aggiungo un messaggio e ritorno pieno
+        if (cx != null) {
+            // creo nuovo messaggio
+            Messaggio00 msg = new Messaggio00();
+            msg.setTesto(dto.getMessaggio());
+            msg.setAliasMittente(cx.getNickname());
+            msg.setAliasDestinatario(dto.getDestinatario());
+
+            // aggiungo un messaggio alla lista dei messaggi
+            msgs.add(msg);
+            System.out.println(msgs.size());
+
+            // ritorno i contatti
+            List<Chat00> listaContatti = removeMeFromChats(cx.getNickname());
+            rx.setContatti(listaContatti);
+
+            // ritorno i messaggi
+            rx.setMessaggi(removeMeFromMessages(cx.getNickname()));
+        } else {
+            // ... se non esiste non aggiungo nulla e ritorno vuoto
+            rx.setContatti(Collections.emptyList());
+            rx.setMessaggi(Collections.emptyList());
+        }
+        return rx;
+    }
+
     private List<Chat00> removeMeFromChats(String nick) {
         return chats.parallelStream()
                 .filter(c -> !(c.getNickname().equals(nick)))
@@ -129,6 +135,8 @@ public class KezappServiceImpl00 implements KezappService00 {
     private List<Messaggio00> removeMeFromMessages(String nick) {
         return msgs.parallelStream()
                 .filter(m -> !(m.getAliasMittente().equals(nick)))
+                .filter(m -> m.getAliasDestinatario() == null
+                        || m.getAliasDestinatario().equals(nick))
                 .collect(Collectors.toList());
     }
 

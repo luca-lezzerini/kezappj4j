@@ -36,9 +36,8 @@ public class KezappController00 {
     @ResponseBody
     public RegistrazioneDto00 inviaUno(@RequestBody InviaMessaggioDto00 dto) {
         System.out.println("Siamo in inviaUno!");
-        RegistrazioneDto00 rx = new RegistrazioneDto00();
-        rx.setSessione("123stella!");
-        return rx;
+        
+        return ss.inviaUno(dto);
     }
 
     @RequestMapping(value = "/inviaTutti00")
