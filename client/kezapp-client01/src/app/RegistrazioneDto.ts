@@ -1,8 +1,8 @@
-import { Messaggio } from './messaggio';
-import { Chat } from './chat';
+import { Messaggio } from './Messaggio';
+import { Chat } from './Chat';
 
-export class RegistrazioneDto{
-    contatti:Chat[];
-    messaggi:Messaggio[];
-    sessione:string;
+export class RegistrazioneDto {
+  contatti: Chat[];
+  messaggi: Messaggio[];
+  sessione: string;
 }

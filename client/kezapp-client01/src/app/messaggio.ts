@@ -1,6 +1,6 @@
-export class Messaggio{ 
-    id:number;
-    testo:string;
-    aliasDestinatario:string;
-    aliasMittente:String;
+export class Messaggio {
+  id: number;
+  testo: string;
+  aliasDestinatario: string;
+  aliasMittente: String;
 }
