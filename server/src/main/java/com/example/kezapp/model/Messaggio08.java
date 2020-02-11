@@ -41,7 +41,7 @@ public class Messaggio08 {
         this.testo = testo;
     }
 
-    public String getAliasDestintario() {
+    public String getAliasDestinatario() {
         return aliasDestinatario;
     }
 

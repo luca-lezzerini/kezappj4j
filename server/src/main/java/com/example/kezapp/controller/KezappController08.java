@@ -6,16 +6,11 @@
 package com.example.kezapp.controller;
 
 import com.example.kezapp.model.Chat08;
-import com.example.kezapp.model.InviaMessaggioDto00;
 import com.example.kezapp.model.InviaMessaggioDto08;
 import com.example.kezapp.model.Messaggio08;
-import com.example.kezapp.model.RegistrazioneDto00;
 import com.example.kezapp.model.RegistrazioneDto08;
-import com.example.kezapp.model.RichiediMessaggioDto00;
-import com.example.kezapp.model.RichiediMessaggioDto08;
-import com.example.kezapp.model.RichiediRegistrazioneDto;
+import com.example.kezapp.model.RichiediMessaggiDto08;
 import com.example.kezapp.model.RichiediRegistrazioneDto08;
-import com.example.kezapp.service.KezappService00;
 import com.example.kezapp.service.KezappService08;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,13 +31,12 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*") // prihvati pagine generirane da qualsiasi server
 @RestController
 public class KezappController08 {
-
     @Autowired
     KezappService08 ss;
 
     @RequestMapping(value = "/registrazione08")
     @ResponseBody
-    public RegistrazioneDto08 registrazione(@RequestBody RichiediRegistrazioneDto dto) {
+    public RegistrazioneDto08 registrazione(@RequestBody RichiediRegistrazioneDto08 dto) {
         System.out.println("Siamo in registrazione!");
 
         return ss.registrazione(dto);
@@ -52,9 +46,8 @@ public class KezappController08 {
     @ResponseBody
     public RegistrazioneDto08 inviaUno(@RequestBody InviaMessaggioDto08 dto) {
         System.out.println("Siamo in inviaUno!");
-        RegistrazioneDto08 rx = new RegistrazioneDto08();
-        rx.setSessione("123stella!");
-        return rx;
+        
+        return ss.inviaUno(dto);
     }
 
     @RequestMapping(value = "/inviaTutti08")
@@ -65,7 +58,7 @@ public class KezappController08 {
     }
 
     @RequestMapping(value = "/aggiorna08")
-    public RegistrazioneDto08 aggiorna(@RequestBody RichiediMessaggioDto08 dto) {
+    public RegistrazioneDto08 aggiorna(@RequestBody RichiediMessaggiDto08 dto) {
         System.out.println("Siamo in aggiorna!");
         
         return ss.aggiorna(dto);

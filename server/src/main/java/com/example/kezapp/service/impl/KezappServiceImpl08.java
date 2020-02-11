@@ -9,8 +9,8 @@ import com.example.kezapp.model.Chat08;
 import com.example.kezapp.model.InviaMessaggioDto08;
 import com.example.kezapp.model.Messaggio08;
 import com.example.kezapp.model.RegistrazioneDto08;
-import com.example.kezapp.model.RichiediMessaggioDto08;
-import com.example.kezapp.model.RichiediRegistrazioneDto;
+import com.example.kezapp.model.RichiediMessaggiDto08;
+import com.example.kezapp.model.RichiediRegistrazioneDto08;
 import com.example.kezapp.service.KezappService08;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +33,7 @@ public class KezappServiceImpl08 implements KezappService08 {
     private List<Messaggio08> msgs = new ArrayList<>();
 
     @Override
-    public RegistrazioneDto08 registrazione(RichiediRegistrazioneDto dto) {
+    public RegistrazioneDto08 registrazione(RichiediRegistrazioneDto08 dto) {
         // verifico se già esiste il nick-name
         boolean trovato = false;
         for (Chat08 chat : chats) {
@@ -73,6 +73,31 @@ public class KezappServiceImpl08 implements KezappService08 {
 
     @Override
     public RegistrazioneDto08 inviaTutti(InviaMessaggioDto08 dto) {
+        dto.setDestinatario(null);
+        return inviaUno(dto);
+    }
+
+    @Override
+    public RegistrazioneDto08 aggiorna(RichiediMessaggiDto08 dto) {
+        Chat08 cx = findChat(dto.getSessione());
+        RegistrazioneDto08 risp = new RegistrazioneDto08();
+        // se non ho trovato la sessione ...
+        if (cx == null) {
+            // ritorno campi vuoti
+            risp.setContatti(Collections.emptyList());
+            risp.setMessaggi(Collections.emptyList());
+        } else {
+            // ... se l'ho trovata recupero e filtro le liste messaggi e contatti
+            List<Chat08> lx = removeMeFromChats(cx.getNickname());
+            risp.setContatti(lx);
+            risp.setMessaggi(removeMeFromMessages(cx.getNickname()));
+            risp.getMessaggi().forEach(s -> System.out.println(s));
+        }
+        return risp;
+    }
+
+    @Override
+    public RegistrazioneDto08 inviaUno(InviaMessaggioDto08 dto) {
         // cerco se esiste la sessione ...
         Chat08 cx = findChat(dto.getSessione());
 
@@ -81,17 +106,18 @@ public class KezappServiceImpl08 implements KezappService08 {
 //                .filter(x -> x.getSessione().equalsIgnoreCase(dto.getSessione()))
 //                .count() > 0;
         RegistrazioneDto08 rx = new RegistrazioneDto08();
-
+        System.out.println(cx);
         // ... se esiste aggiungo un messaggio e ritorno pieno
         if (cx != null) {
             // creo nuovo messaggio
             Messaggio08 msg = new Messaggio08();
             msg.setTesto(dto.getMessaggio());
             msg.setAliasMittente(cx.getNickname());
-            msg.setAliasDestinatario(null);
+            msg.setAliasDestinatario(dto.getDestinatario());
 
             // aggiungo un messaggio alla lista dei messaggi
             msgs.add(msg);
+            System.out.println(msgs.size());
 
             // ritorno i contatti
             List<Chat08> listaContatti = removeMeFromChats(cx.getNickname());
@@ -105,24 +131,6 @@ public class KezappServiceImpl08 implements KezappService08 {
             rx.setMessaggi(Collections.emptyList());
         }
         return rx;
-    }
-
-    @Override
-    public RegistrazioneDto08 aggiorna(RichiediMessaggioDto08 dto) {
-        Chat08 cx = findChat(dto.getSessione());
-        RegistrazioneDto08 risp = new RegistrazioneDto08();
-        // se non ho trovato la sessione ...
-        if (cx == null) {
-            // ritorno campi vuoti
-            risp.setContatti(Collections.emptyList());
-            risp.setMessaggi(Collections.emptyList());
-        } else {
-            // ... se l'ho trovata recupero e filtro le liste messaggi e contatti
-            List<Chat08> lx = removeMeFromChats(cx.getNickname());
-            risp.setContatti(lx);
-            risp.setMessaggi(removeMeFromMessages(cx.getNickname()));
-        }
-        return risp;
     }
 
     private List<Chat08> removeMeFromChats(String nick) {
@@ -140,6 +148,8 @@ public class KezappServiceImpl08 implements KezappService08 {
     private List<Messaggio08> removeMeFromMessages(String nick) {
         return msgs.parallelStream()
                 .filter(m -> !(m.getAliasMittente().equals(nick)))
+                .filter(m -> m.getAliasDestinatario() == null
+                        || m.getAliasDestinatario().equals(nick))
                 .collect(Collectors.toList());
     }
 

@@ -5,46 +5,22 @@
  */
 package com.example.kezapp.model;
 
-/**
- *
- * @author utente
- */
 public class RichiediRegistrazioneDto08 {
-    private String messaggio;
-    private String sessione;
-    private String destinatario;
+    private String nickname;
 
     public RichiediRegistrazioneDto08() {
     }
 
-    public RichiediRegistrazioneDto08(String messaggio, String sessione, String destinatario) {
-        this.messaggio = messaggio;
-        this.sessione = sessione;
-        this.destinatario = destinatario;
+    public RichiediRegistrazioneDto08(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getMessaggio() {
-        return messaggio;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setMessaggio(String messaggio) {
-        this.messaggio = messaggio;
-    }
-
-    public String getSessione() {
-        return sessione;
-    }
-
-    public void setSessione(String sessione) {
-        this.sessione = sessione;
-    }
-
-    public String getDestinatario() {
-        return destinatario;
-    }
-
-    public void setDestinatario(String destinatario) {
-        this.destinatario = destinatario;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
     
 }
