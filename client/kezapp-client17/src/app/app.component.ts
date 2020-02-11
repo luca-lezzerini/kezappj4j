@@ -1,3 +1,4 @@
+import { RichiediMessaggiDto } from './richiedi-messaggi-dto';
 import { InviaMessaggioDto } from './invia-messaggio-dto';
 import { RichiediRegistrazioneDto } from './richiedi-registrazione-dto';
 import { Component } from '@angular/core';
@@ -15,7 +16,6 @@ import { Chat } from './chat';
 export class AppComponent {
   nickname: string;
   messaggio: string;
-  aggiorna: string;
   righe: string[];
   sessione: string;
   attiva: boolean;
@@ -64,6 +64,45 @@ export class AppComponent {
 
     // creo la callback
     ox.subscribe(data => {
+      console.log(data);
+      this.messaggi = data.messaggi;
+      this.contatti = data.contatti;
+    } );
+  }
+
+  inviaAUno(c: Chat) {
+    // preparo i dati da inviare al server
+    let imuno : InviaMessaggioDto = new InviaMessaggioDto();
+    imuno.messaggio = this.messaggio;
+    imuno.destinatario = c.nickname;
+    imuno.sessione = this.sessione;
+
+    // preparo la richiesta HTTP - invio i dati al server
+    let ox : Observable<RegistrazioneDto> =
+    this.http.post<RegistrazioneDto>('http://localhost:8080/inviaauno17', imuno);
+
+    // creo la callback
+    ox.subscribe(data => {
+      console.log(data);
+      this.messaggi = data.messaggi;
+      this.contatti = data.contatti;
+    } );
+  }
+
+  /**
+   * @description questo metodo recupera da server i dati aggiornati
+   */
+  aggiorna() {
+    // preparo i dati da inviare al server
+    let p : RichiediMessaggiDto = new RichiediMessaggiDto();
+    p.sessione = this.sessione;
+
+    // preparo la richiesta HTTP - invio i dati al server
+    let obs : Observable<RegistrazioneDto> =
+    this.http.post<RegistrazioneDto>('http://localhost:8080/aggiorna17', p);
+
+    // invio la callback
+    obs.subscribe(data => {
       console.log(data);
       this.messaggi = data.messaggi;
       this.contatti = data.contatti;
