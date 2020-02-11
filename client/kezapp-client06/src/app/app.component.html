@@ -32,7 +32,7 @@
     <table>
       <tr *ngFor="let contatto of contatti">
         <td>{{ contatto.nickname }}</td>
-        <td><button type="button" (click)="invia()">Invia</button></td>
+        <td><button type="button" (click)="invia(contatto)">Invia</button></td>
       </tr>
     </table>
 
