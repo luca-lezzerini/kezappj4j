@@ -54,6 +54,22 @@ export class AppComponent {
                                 this.contatti = data.contatti;} )
   }
 
+  inviaAUno(c : Chat){
+
+    //preparo i dati da inviare al server
+    let im: InviaMessaggioDto = new InviaMessaggioDto();
+    im.destinatario = this.nickname;
+    im.sessione = this.sessione;
+    im.messaggio = this.messaggio;
+
+    //invio i dati al server
+    let ox: Observable<RegistrazioneDto> = this.http.post<RegistrazioneDto>('http://localhost:8080/inviauno10', im);
+
+    //creo la callback
+    ox.subscribe( data => { this.messaggi = data.messaggi;
+                                this.contatti = data.contatti;} )
+  }
+
   aggiorna(){
 
     let x: RichiediMessaggiDto = new RichiediMessaggiDto();

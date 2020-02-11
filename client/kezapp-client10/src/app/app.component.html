@@ -28,7 +28,8 @@
     </tr>
     
     <tr *ngFor="let c of contatti">
-      <td>{{c.nickname}}</td>
+      <td> {{c.nickname}} </td>
+      <td> <button type="button" (click)="inviaAUno(c)"><b> Invia </b></button> </td>
     </tr>
     
     </table>
