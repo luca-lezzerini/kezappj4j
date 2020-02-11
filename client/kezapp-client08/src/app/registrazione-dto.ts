@@ -1,5 +1,5 @@
 import { Chat } from './chat';
-import { Messaggio } from './Messaggio';
+import { Messaggio } from './messaggio';
 
 
 export class RegistrazioneDto{

@@ -3,6 +3,6 @@
 
  messaggio: string;
  destinatario: string;
- session: string;
+ sessione: string;
 
 }

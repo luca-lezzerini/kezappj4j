@@ -7,77 +7,22 @@
   <input type="text" [(ngModel)]='messaggio'>&nbsp;
   <button type="button" (click)="inviaATutti()">Invia a tutti!</button>
   <br>
-  <!-- <button type="button" (click)="riempiTabelle()">RiempiTabelle!</button> -->
+
   <br>
   <h2>Contatti</h2>
-
-  <table st-table="mostraContatti"  st-safe-src="contatti" class="table table-striped">
-    <thead>
-      <tr>
-        <th colspan="1">
-          <input st-search placeholder="Cerca" class="input-sm form-control" type="search"/>
-        </th>
-      </tr>
-      <tr>
-        <th st-sort="nome">Nome</th>
-        <th st-sort="cellulare">Cellulare</th>
-        <th st-sort="email">Email</th>
-        <th st-sort="indirizzo">Indirizzo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr st-select-row="row" st-select-mode="multiple" righeContatti.length=20 *ngFor="let r of righeContatti">
-        <td>{{r.nome}}</td>
-        <td>{{r.cellulare}}</td>
-        <td>{{r.email}}</td>
-        <td>{{r.indirizzo}}</td>
-      </tr>
-    </tbody>
-
-    <tfoot>
-      <tr>
-        <td colspan="4" class="text-center">
-          <div st-pagination="" st-items-by-page="5"></div>
-        </td>
-      </tr>
-    </tfoot>
+  <table>
+    <tr *ngFor = "let c of contatti">
+      <td>{{c.nickname}}</td>
+    </tr>
   </table>
 
   <hr>
   <h2>Messaggi ricevuti</h2>
   <button type="button" (click)="aggiorna()">Aggiorna!</button>
   <hr>
-
-  <table st-table="mostraMessaggi"  st-safe-src="contatti" class="table table-striped">
-    <thead>
-      <tr>
-        <th colspan="1">
-          <input st-search placeholder="Cerca" class="input-sm form-control" type="search"/>
-        </th>
-      </tr>
-      <tr>
-        <th st-sort="nome">Nome</th>
-        <th st-sort="messaggio">Messaggio</th>
-        <th st-sort="data">Data</th>
-        <th st-sort="ora">Ora</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr st-select-row="row" st-select-mode="multiple" *ngFor="let r of righeMessaggi">
-        <td>{{r.nome}}</td>
-        <td>{{r.messaggio}}</td>
-        <td>{{r.data}}</td>
-        <td>{{r.ora}}</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="4" class="text-center">
-          <div st-pagination="" st-items-by-page="5"></div>
-        </td>
-      </tr>
-    </tfoot>
+  <table>
+    <tr *ngFor="let m of messaggi">
+      <td>{{m.aliasMittente}}</td>
+      <td>{{m.testo}}</td>
+    </tr>
   </table>
-</div>
-
-<p>Ciao!</p>

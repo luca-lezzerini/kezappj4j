@@ -1,5 +1,5 @@
 export class RichiediRegistrazioneDto{
 
-  nickName: string;
+  nickname: string;
 
 }

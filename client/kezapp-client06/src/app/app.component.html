@@ -1,39 +1,51 @@
-<form>
-  <input type="text" [(ngModel)]="nickname" name="nickname"/>&nbsp;
-  <button type="button" (click)="registrazione()">Registrazione</button>
-</form>
-<br />
-<br />
-<div *ngIf="sAttiva">
-  <form>
-    <input type="text" [(ngModel)]="messaggio" name="messaggio"/>&nbsp;
-    <button type="button" (click)="inviaATutti()">Invia a tutti</button>
-  </form>
+<div class="header">
+  <img
+    src="../assets/kezzapp.png"
+    alt="Kezzapp"
+    style="width: 25%; height: 25%;"
+  />
 </div>
-
-<br />
-<br />
-
-<div *ngIf="sAttiva">
-  Contatti
+<div class="main">
   <br />
   <br />
-  <table>
-    <tr *ngFor="let contatto of contatti">
-      <td>{{ contatto.nickname }}</td>
-      <td><button type="button" (click)="invia()">Invia</button></td>
-    </tr>
-  </table>
+
+  <form>
+    <input type="text" [(ngModel)]="nickname" name="nickname" />&nbsp;
+    <button type="button" (click)="registrazione()">Registrazione</button>
+  </form>
+  <br />
+  <br />
+  <div *ngIf="sAttiva">
+    <form>
+      <input type="text" [(ngModel)]="messaggio" name="messaggio" />&nbsp;
+      <button type="button" (click)="inviaATutti()">Invia a tutti</button>
+    </form>
+  </div>
 
   <br />
-
-  Messaggi ricevuti &nbsp;
-  <button type="button" (click)="aggiorna()">Aggiorna</button><br />
   <br />
-  <table>
-    <tr *ngFor="let messaggio of messaggi">
-      <td>{{ messaggio.aliasMittente }}</td>
-      <td>{{ messaggio.testo }}</td>
-    </tr>
-  </table>
+
+  <div *ngIf="sAttiva">
+    Contatti
+    <br />
+    <br />
+    <table>
+      <tr *ngFor="let contatto of contatti">
+        <td>{{ contatto.nickname }}</td>
+        <td><button type="button" (click)="invia()">Invia</button></td>
+      </tr>
+    </table>
+
+    <br />
+
+    Messaggi ricevuti &nbsp;
+    <button type="button" (click)="aggiorna()">Aggiorna</button><br />
+    <br />
+    <table>
+      <tr *ngFor="let messaggio of messaggi">
+        <td>{{ messaggio.aliasMittente }}</td>
+        <td>{{ messaggio.testo }}</td>
+      </tr>
+    </table>
+  </div>
 </div>

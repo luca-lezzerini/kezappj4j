@@ -1,3 +1,3 @@
-export class RichiediRegistrazoneDto{
-    nickname:string;
+export class RichiediRegistrazoneDto {
+  nickname: string;
 }

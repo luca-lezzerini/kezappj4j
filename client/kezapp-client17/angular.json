@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "kezapp-client17"
+  "defaultProject": "kezapp-client17",
+  "cli": {
+    "analytics": false
+  }
 }
