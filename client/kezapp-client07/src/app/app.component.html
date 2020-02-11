@@ -11,7 +11,11 @@
   Contatti
   <table>
     <tr *ngFor="let c of contatti">
-      <td>{{c.nickname}}</td>
+      <td>
+        {{c.nickname}}
+        <button type="button" (click)="inviaUno()">Invia {{c.nickname}}</button>
+      </td>
+
     </tr>
   </table>
       Messaggi ricevuti
@@ -27,16 +31,7 @@
   <br>
   Messaggi Ricevuti<input type="button" value="Aggiorna">
   <br>
-  <table>
 
-      <tr>
-        <td>Column 0</td>
-        <td>Column 1</td>
-        <td>Column 2</td>
-        <td>Column 3</td>
-      </tr>
-
-  </table>
 </div>
 
 
