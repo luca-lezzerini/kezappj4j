@@ -1,5 +1,5 @@
-import { Chat } from './chat2';
-import { Messaggio } from './messaggio2';
+import { Chat } from './chat';
+import { Messaggio } from './messaggio';
 
 export class RegistrazioneDto {
   contatti: Chat[];

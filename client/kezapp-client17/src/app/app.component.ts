@@ -3,10 +3,10 @@ import { InviaMessaggioDto } from './invia-messaggio-dto';
 import { RichiediRegistrazioneDto } from './richiedi-registrazione-dto';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Messaggio } from './messaggio2';
+import { Messaggio } from './messaggio';
 import { RegistrazioneDto } from './registrazione-dto';
 import { Observable } from 'rxjs';
-import { Chat } from './chat2';
+import { Chat } from './chat';
 
 @Component({
   selector: 'app-root',
