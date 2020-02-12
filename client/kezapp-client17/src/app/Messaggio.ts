@@ -1,5 +1,5 @@
 export class Messaggio {
-  id: number ;
+  id: number;
   testo: string;
   aliasDestinatario: string;
   aliasMittente: string;
