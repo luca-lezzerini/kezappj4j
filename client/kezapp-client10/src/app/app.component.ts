@@ -54,11 +54,11 @@ export class AppComponent {
                                 this.contatti = data.contatti;} )
   }
 
-  inviaAUno(c : Chat){
+  inviaUno(c : Chat){
 
     //preparo i dati da inviare al server
     let im: InviaMessaggioDto = new InviaMessaggioDto();
-    im.destinatario = this.nickname;
+    im.destinatario = c.nickname;
     im.sessione = this.sessione;
     im.messaggio = this.messaggio;
 
@@ -77,7 +77,7 @@ export class AppComponent {
 
     let obs: Observable<RegistrazioneDto> = this.http.post<RegistrazioneDto>('http://localhost:8080/aggiorna10', x)
 
-    obs.subscribe( ricevo => { this.sessione = ricevo.sessione; this.contatti = ricevo.contatti; this.messaggi = ricevo.messaggi; })
+    obs.subscribe( ricevo => { this.contatti = ricevo.contatti; this.messaggi = ricevo.messaggi; })
 
     console.log("entrato");
   }

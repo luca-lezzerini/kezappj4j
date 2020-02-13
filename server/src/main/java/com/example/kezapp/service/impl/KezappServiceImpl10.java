@@ -48,7 +48,9 @@ public class KezappServiceImpl10 implements KezappService10{
             cx.setSessione(Double.toString(d));
             chats.add(cx);
             
-            rx.setContatti(chats);
+            List<Chat10> listaContatti = removeMeFromChat(dto.getNickname());
+            rx.setContatti(listaContatti);
+            
             rx.setSessione(cx.getSessione());
             rx.setMessaggi(msgs);
         }else{
@@ -66,7 +68,7 @@ public class KezappServiceImpl10 implements KezappService10{
 ///////////////////////////INVIA A TUTTI/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     @Override
-    public RegistrazioneDto10 inviaTutti(@RequestBody InviaMessaggioDto10 dto){
+    public RegistrazioneDto10 inviaTutti(InviaMessaggioDto10 dto){
         
       dto.setDestinatario(null);
       return inviaUno(dto);
@@ -129,11 +131,13 @@ public class KezappServiceImpl10 implements KezappService10{
             rx.setMessaggi(Collections.emptyList());
             //altrimenti
         }else{
+            List <Chat10> lx = removeMeFromChat(cx.getNickname());
             //ritorno i contatti tranne il mio
-            rx.setContatti(removeMeFromChat(cx.getNickname()));
+            rx.setContatti(lx);
                     
             //ritorno i messaggi tranne i miei
             rx.setMessaggi(removeMeFromMessage(cx.getNickname()));
+            rx.getMessaggi().forEach(s -> System.out.println(s));
         }
             
         
